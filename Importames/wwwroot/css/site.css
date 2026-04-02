@@ -178,6 +178,35 @@ body {
     font-weight: 600;
 }
 
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.select {
+    height: 42px;
+    width: 150px;
+    border-radius: 12px;
+    background: #13161e;
+    color: #9ca3af;
+    border: 1px solid #1f2937;
+}
+
+.input-search {
+    width: 420px;
+    height: 42px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid #1f2937;
+    background: #13161e;
+    color: #e5e7eb;
+    outline: none;
+}
+
+    .input-search:focus {
+        border-color: #2563eb;
+    }
+
 /* FOOTER */
 .sidebar-footer {
     padding: 15px 20px;

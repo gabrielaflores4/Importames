@@ -1,0 +1,109 @@
+﻿.table-container {
+    background: #13161e;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #1f2937;
+}
+
+.main-content {
+    flex: 1;
+    width: 100%;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .table th {
+        text-align: left;
+        padding: 16px 18px;
+        font-size: 12px;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .table td {
+        padding: 18px;
+        border-top: 1px solid #111827;
+        color: #e5e7eb;
+    }
+
+    .table tbody tr:hover {
+        background: #020617;
+    }
+
+.vin {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.vehiculo {
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre {
+    font-weight: 600;
+}
+
+.detalle {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.badge-cyan {
+    background: #0e7490;
+    color: #22d3ee;
+}
+
+.badge-yellow {
+    background: #92400e;
+    color: #facc15;
+}
+
+.badge-purple {
+    background: #581c87;
+    color: #a855f7;
+}
+
+.badge-blue {
+    background: #1e3a8a;
+    color: #3b82f6;
+}
+
+.badge-green {
+    background: #14532d;
+    color: #22c55e;
+}
+
+.badge-red {
+    background: #7f1d1d;
+    color: #ef4444;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+}

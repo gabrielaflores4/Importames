@@ -45,6 +45,26 @@
         </aside>
 
         <main class="main-content">
+            <div class="topbar">
+
+                <div class="topbar-left">
+                    <h2>@ViewData["Title"]</h2>
+                </div>
+
+                <div class="topbar-right">
+                    <button class="topbar-btn">
+                        <i class="bi bi-gear"></i>
+                    </button>
+
+                    <button class="topbar-btn">
+                        <i class="bi bi-bell"></i>
+                    </button>
+
+                    <!--Usuario de Ejemplo-->
+                    <div class="topbar-user">U</div>
+                </div>
+            </div>
+
             @RenderBody()
         </main>
     </div>

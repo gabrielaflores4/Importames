@@ -45,8 +45,44 @@
                 <tr>
                     <td>@v.Vin</td>
                     <td>@v.Marca @v.Modelo</td>
-                    <td>@v.IdCliente</td>
-                    <td>@v.IdEstado</td>
+                    <td>@v.Cliente.Nombre</td>
+                    <td>
+                        @{
+                            string clase = "badge";
+
+                            switch (v.Estado.NombreEstado)
+                            {
+                                case "En tránsito":
+                                    clase += " badge-cyan";
+                                    break;
+
+                                case "En aduana":
+                                    clase += " badge-yellow";
+                                    break;
+
+                                case "En preparación":
+                                    clase += " badge-purple";
+                                    break;
+
+                                case "Trámites pendientes":
+                                    clase += " badge-red";
+                                    break;
+
+                                case "Listo para entrega":
+                                    clase += " badge-blue";
+                                    break;
+
+                                case "Entregado":
+                                    clase += " badge-green";
+                                    break;
+
+                                default:
+                                    clase += " badge-blue";
+                                    break;
+                            }
+                        }
+                        <span class="@clase">@v.Estado.NombreEstado</span>
+                    </td>
                     <td>@v.Anio</td>
                     <td>$@v.Costo</td>
                     <td>
@@ -92,6 +128,4 @@
                 document.getElementById("modal").style.display = "flex";
             });
     }
-
-
 </script>

@@ -1,6 +1,7 @@
 ﻿using Importames.Data;
 using Importames.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Importames.Controllers
 {
@@ -13,7 +14,11 @@ namespace Importames.Controllers
         }
         public IActionResult Index()
         {
-            var lista = _context.Vehiculos.ToList();
+            var lista = _context.Vehiculos
+                .Include(v => v.Estado)
+                .Include(v => v.Cliente)
+                .ToList();
+
             return View("VehiculosView", lista);
         }
 

@@ -9,13 +9,19 @@
         <input type="text" placeholder="Buscar" class="input-search" />
 
         <div class="filters">
-            <select class="select">
-                <option>Categoría</option>
-            </select>
+            <form method="get">
+                <select class="select" name="estadoId" onchange="this.form.submit()">
+                    <option value="">Todos</option>
 
-            <select class="select">
-                <option>Estado</option>
-            </select>
+                    @foreach (var e in ViewBag.Estados)
+                    {
+                        <option value="@e.IdEstado"
+                                selected="@(Context.Request.Query["estadoId"] == e.IdEstado.ToString())">
+                            @e.NombreEstado
+                        </option>
+                    }
+                </select>
+            </form>
         </div>
     </div>
 
@@ -45,7 +51,7 @@
                 <tr>
                     <td>@v.Vin</td>
                     <td>@v.Marca @v.Modelo</td>
-                    <td>@v.Cliente.Nombre</td>
+                    <td>@($"{v.Cliente.Nombre} {v.Cliente.Apellido}")</td>
                     <td>
                         @{
                             string clase = "badge";

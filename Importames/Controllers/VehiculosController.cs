@@ -12,14 +12,21 @@ namespace Importames.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? estadoId)
         {
-            var lista = _context.Vehiculos
+            var query = _context.Vehiculos
                 .Include(v => v.Estado)
                 .Include(v => v.Cliente)
-                .ToList();
+                .AsQueryable();
 
-            return View("VehiculosView", lista);
+            if (estadoId != null)
+            {
+                query = query.Where(v => v.IdEstado == estadoId);
+            }
+
+            ViewBag.Estados = _context.Estados.ToList();
+
+            return View("VehiculosView", query.ToList());
         }
 
         public IActionResult Create()

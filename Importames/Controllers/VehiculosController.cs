@@ -62,6 +62,10 @@ namespace Importames.Controllers
         public IActionResult Edit(int id)
         {
             var vehiculo = _context.Vehiculos.Find(id);
+
+            ViewBag.Clientes = _context.Clientes.ToList();
+            ViewBag.Estados = _context.Estados.ToList();
+
             return View("EditarVehiculo", vehiculo);
         }
 

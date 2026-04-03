@@ -42,8 +42,14 @@
 
     <div class="form-group">
         <label>CLIENTE</label>
-        <select name="id_cliente">
-            <option value="@Model.IdCliente">@Model.IdCliente</option>
+        <select name="IdCliente" required>
+            @foreach (var c in ViewBag.Clientes)
+            {
+                <option value="@c.IdCliente"
+                        selected="@(Model.IdCliente == c.IdCliente)">
+                    @($"{c.Nombre} {c.Apellido}")
+                </option>
+            }
         </select>
     </div>
 
@@ -54,8 +60,14 @@
 
     <div class="form-group full">
         <label>ESTADO</label>
-        <select name="id_estado">
-            <option value="@Model.IdEstado">@Model.IdEstado</option>
+        <select name="IdEstado" required>
+            @foreach (var e in ViewBag.Estados)
+            {
+                <option value="@e.IdEstado"
+                        selected="@(Model.IdEstado == e.IdEstado)">
+                    @e.NombreEstado
+                </option>
+            }
         </select>
     </div>
 

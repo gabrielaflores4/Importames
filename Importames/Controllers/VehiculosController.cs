@@ -1,4 +1,5 @@
 ﻿using Importames.Data;
+using Importames.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Importames.Controllers
@@ -27,10 +28,19 @@ namespace Importames.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
+            var vehiculo = _context.Vehiculos.Find(id);
+            return View("EditarVehiculo", vehiculo);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(VehiculoModel vehiculo)
+        {
+            _context.Vehiculos.Update(vehiculo);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }

@@ -83,4 +83,15 @@
     function cerrarModal() {
         document.getElementById("modal").style.display = "none";
     }
+
+    function abrirModalEditar(id) {
+        fetch('/Vehiculos/Edit/' + id)
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("modal-body").innerHTML = html;
+                document.getElementById("modal").style.display = "flex";
+            });
+    }
+
+
 </script>

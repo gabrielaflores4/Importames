@@ -1,63 +1,61 @@
-﻿@{
+﻿@model Importames.Models.VehiculoModel
+@{
     Layout = null;
 }
 
 <form method="post" action="/Vehiculos/Edit" class="form-grid">
     <h2 class="form-title">Editar Vehículo</h2>
 
+    <input type="hidden" name="IdVehiculo" value="@Model.IdVehiculo" />
+
     <div class="form-group">
         <label>MARCA</label>
-        <input type="text" name="marca" required />
+        <input type="text" name="marca" value="@Model.marca" required />
     </div>
 
     <div class="form-group">
         <label>MODELO</label>
-        <input type="text" name="modelo" required />
+        <input type="text" name="modelo" value="@Model.modelo" required />
     </div>
 
     <div class="form-group">
         <label>AÑO</label>
         <select name="anio" required>
-            <option value=""></option>
             @for (int i = DateTime.Now.Year; i >= 1980; i--)
             {
-                <option value="@i">@i</option>
+                <option value="@i" selected="@(Model.anio == i)">
+                    @i
+                </option>
             }
         </select>
     </div>
 
     <div class="form-group">
         <label>COLOR</label>
-        <input type="text" name="color" required />
+        <input type="text" name="color" value="@Model.color" required />
     </div>
 
     <div class="form-group full">
         <label>VIN</label>
-        <input type="text" name="vin" required />
+        <input type="text" name="vin" value="@Model.vin" required />
     </div>
 
     <div class="form-group">
         <label>CLIENTE</label>
-        <select name="clienteId">
-            <option value=""></option>
+        <select name="id_cliente">
+            <option value="@Model.id_cliente">@Model.id_cliente</option>
         </select>
     </div>
 
     <div class="form-group">
         <label>COSTO</label>
-        <input type="number" name="costo" step="0.01" required />
+        <input type="number" name="costo" value="@Model.costo" step="0.01" required />
     </div>
 
     <div class="form-group full">
-        <label>ESTADO INICIAL</label>
-        <select name="estado" required>
-            <option value=""></option>
-            <option value="En tránsito">En tránsito</option>
-            <option value="En aduana">En aduana</option>
-            <option value="En preparación">En preparación</option>
-            <option value="Trámites pendientes">Trámites pendientes</option>
-            <option value="Listo para entrega">Listo para entrega</option>
-            <option value="Entregado">Entregado</option>
+        <label>ESTADO</label>
+        <select name="id_estado">
+            <option value="@Model.id_estado">@Model.id_estado</option>
         </select>
     </div>
 

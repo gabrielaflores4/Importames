@@ -10,12 +10,12 @@
 
     <div class="form-group">
         <label>MARCA</label>
-        <input type="text" name="marca" value="@Model.marca" required />
+        <input type="text" name="marca" value="@Model.Marca" required />
     </div>
 
     <div class="form-group">
         <label>MODELO</label>
-        <input type="text" name="modelo" value="@Model.modelo" required />
+        <input type="text" name="modelo" value="@Model.Modelo" required />
     </div>
 
     <div class="form-group">
@@ -23,7 +23,7 @@
         <select name="anio" required>
             @for (int i = DateTime.Now.Year; i >= 1980; i--)
             {
-                <option value="@i" selected="@(Model.anio == i)">
+                <option value="@i" selected="@(Model.Anio == i)">
                     @i
                 </option>
             }
@@ -32,30 +32,30 @@
 
     <div class="form-group">
         <label>COLOR</label>
-        <input type="text" name="color" value="@Model.color" required />
+        <input type="text" name="color" value="@Model.Color" required />
     </div>
 
     <div class="form-group full">
         <label>VIN</label>
-        <input type="text" name="vin" value="@Model.vin" required />
+        <input type="text" name="vin" value="@Model.Vin" required />
     </div>
 
     <div class="form-group">
         <label>CLIENTE</label>
         <select name="id_cliente">
-            <option value="@Model.id_cliente">@Model.id_cliente</option>
+            <option value="@Model.IdCliente">@Model.IdCliente</option>
         </select>
     </div>
 
     <div class="form-group">
         <label>COSTO</label>
-        <input type="number" name="costo" value="@Model.costo" step="0.01" required />
+        <input type="number" name="costo" value="@Model.Costo" step="0.01" required />
     </div>
 
     <div class="form-group full">
         <label>ESTADO</label>
         <select name="id_estado">
-            <option value="@Model.id_estado">@Model.id_estado</option>
+            <option value="@Model.IdEstado">@Model.IdEstado</option>
         </select>
     </div>
 

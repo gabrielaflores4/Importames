@@ -43,12 +43,12 @@
             @foreach (var v in Model)
             {
                 <tr>
-                    <td>@v.vin</td>
-                    <td>@v.marca @v.modelo</td>
-                    <td>@v.id_cliente</td>
-                    <td>@v.id_estado</td>
-                    <td>@v.anio</td>
-                    <td>$@v.costo</td>
+                    <td>@v.Vin</td>
+                    <td>@v.Marca @v.Modelo</td>
+                    <td>@v.IdCliente</td>
+                    <td>@v.IdEstado</td>
+                    <td>@v.Anio</td>
+                    <td>$@v.Costo</td>
                     <td>
                         <button class="btn btn-edit" onclick="abrirModalEditar(@v.IdVehiculo)">
                             Editar

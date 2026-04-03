@@ -29,15 +29,34 @@ namespace Importames.Controllers
             return View("VehiculosView", query.ToList());
         }
 
-        public IActionResult Create()
+        [HttpPost]
+        public IActionResult Create(VehiculoModel v)
         {
-            return View("CrearVehiculo");
+            v.FechaIngreso = DateTime.Now;
+
+            _context.Vehiculos.Add(v);
+            _context.SaveChanges();
+
+            var historial = new HistorialEstadoModel
+            {
+                IdVehiculo = v.IdVehiculo,
+                IdEstado = v.IdEstado,
+                IdUsuario = 1,
+                FechaCambio = DateTime.Now
+            };
+
+            _context.Historiales.Add(historial);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Create(string nombre, string color)
+        public IActionResult Create()
         {
-            return RedirectToAction("Index");
+            ViewBag.Clientes = _context.Clientes.ToList();
+            ViewBag.Estados = _context.Estados.ToList();
+
+            return View("CrearVehiculo");
         }
 
         public IActionResult Edit(int id)

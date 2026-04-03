@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Importames.Models.VehiculoModel
+@{
     Layout = null;
 }
 
@@ -38,8 +39,12 @@
 
     <div class="form-group">
         <label>CLIENTE</label>
-        <select name="clienteId">
+        <select name="IdCliente" required>
             <option value=""></option>
+            @foreach (var c in ViewBag.Clientes)
+            {
+                <option value="@c.IdCliente">@($"{c.Nombre} {c.Apellido}")</option>
+            }
         </select>
     </div>
 
@@ -50,14 +55,12 @@
 
     <div class="form-group full">
         <label>ESTADO INICIAL</label>
-        <select name="estado" required>
+        <select name="IdEstado" required>
             <option value=""></option>
-            <option value="En tránsito">En tránsito</option>
-            <option value="En aduana">En aduana</option>
-            <option value="En preparación">En preparación</option>
-            <option value="Trámites pendientes">Trámites pendientes</option>
-            <option value="Listo para entrega">Listo para entrega</option>
-            <option value="Entregado">Entregado</option>
+            @foreach (var e in ViewBag.Estados)
+            {
+                <option value="@e.IdEstado">@e.NombreEstado</option>
+            }
         </select>
     </div>
 

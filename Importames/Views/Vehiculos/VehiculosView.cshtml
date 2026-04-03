@@ -54,7 +54,7 @@
                     <td>@($"{v.Cliente.Nombre} {v.Cliente.Apellido}")</td>
                     <td>
                         @{
-                            string clase = "badge";
+                            string clase = "estado-badge";
 
                             switch (v.Estado.NombreEstado)
                             {
@@ -91,7 +91,7 @@
                     </td>
                     <td>@v.Anio</td>
                     <td>$@v.Costo</td>
-                    <td>
+                    <td class="acciones">
                         <button class="btn btn-edit" onclick="abrirModalEditar(@v.IdVehiculo)">
                             Editar
                         </button>

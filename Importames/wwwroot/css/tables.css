@@ -28,10 +28,15 @@
     border-collapse: collapse;
 }
 
+    .table td,
+    .table th {
+        vertical-align: middle;
+    }
+
     .table th {
         text-align: left;
         padding: 16px 18px;
-        font-size: 12px;
+        font-size: 14px;
         color: #6b7280;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -48,7 +53,7 @@
     }
 
 .vin {
-    font-size: 12px;
+    font-size: 14px;
     color: #6b7280;
 }
 
@@ -62,15 +67,29 @@
 }
 
 .detalle {
-    font-size: 12px;
+    font-size: 14px;
     color: #6b7280;
 }
 
-.badge {
+.estado {
+    text-align: center;
+}
+
+.table td:nth-child(4) {
+    text-align: center !important;
+}
+
+.estado-badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
     padding: 6px 12px;
     border-radius: 999px;
-    font-size: 12px;
-    display: inline-block;
+    font-size: 14px;
+    min-width: 120px;
+    margin: 0 auto;
 }
 
 .badge-cyan {
@@ -105,7 +124,10 @@
 
 .acciones {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
 }
 
 .table td button {

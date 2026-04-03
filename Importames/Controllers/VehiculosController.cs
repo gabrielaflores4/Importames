@@ -19,5 +19,12 @@ namespace Importames.Controllers
         {
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult Edit()
+        {
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -1,12 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Importames.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Importames.Controllers
 {
     public class VehiculosController : Controller
     {
+        private readonly AppDbContext _context;
+        public VehiculosController(AppDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View("VehiculosView");
+            var lista = _context.Vehiculos.ToList();
+            return View("VehiculosView", lista);
         }
 
         public IActionResult Create()
@@ -25,6 +32,5 @@ namespace Importames.Controllers
         {
             return RedirectToAction("Index");
         }
-
     }
 }

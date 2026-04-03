@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Importames.Models.VehiculoModel>
+@{
     ViewData["Title"] = "Vehículos";
 }
 
@@ -39,9 +40,26 @@
         </thead>
 
         <tbody>
-            <tr>
-                
-            </tr>
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td>@v.vin</td>
+                    <td>@v.marca @v.modelo</td>
+                    <td>@v.id_cliente</td>
+                    <td>@v.id_estado</td>
+                    <td>@v.anio</td>
+                    <td>$@v.costo</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="abrirModalEditar(@v.IdVehiculo)">
+                            Editar
+                        </button>
+
+                        <button class="btn btn-delete">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 

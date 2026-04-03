@@ -29,11 +29,22 @@
         background: #8f0f13;
     }
 
+.btn-edit {
+    background: transparent;
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+}
+
+    .btn-edit:hover {
+        background: rgba(59, 130, 246, 0.1);
+    }
+
 .btn-delete {
-    background: #ef4444;
-    color: white;
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #ef4444;
 }
 
     .btn-delete:hover {
-        background: #dc2626;
+        background: rgba(239, 68, 68, 0.1);
     }

@@ -1,2 +1,39 @@
-﻿body {
+﻿.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
 }
+
+.btn-save {
+    background: #22c55e;
+    color: white;
+}
+
+    .btn-save:hover {
+        background: #16a34a;
+    }
+
+.btn-cancel {
+    background: #374151;
+    color: white;
+}
+
+.btn-add {
+    background: #b41318;
+    color: white;
+}
+
+    .btn-add:hover {
+        background: #8f0f13;
+    }
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+    .btn-delete:hover {
+        background: #dc2626;
+    }

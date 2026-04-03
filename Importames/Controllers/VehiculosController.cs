@@ -8,5 +8,16 @@ namespace Importames.Controllers
         {
             return View("VehiculosView");
         }
+
+        public IActionResult Create()
+        {
+            return View("CrearVehiculo");
+        }
+
+        [HttpPost]
+        public IActionResult Create(string nombre, string color)
+        {
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <button class="btn-primary">
+    <button class="btn btn-add" onclick="abrirModal()">
         <i class="bi bi-plus"></i> Registrar Vehículo
     </button>
 
@@ -46,3 +46,23 @@
     </table>
 
 </div>
+
+<div id="modal" class="modal">
+    <div class="modal-content" id="modal-body">
+    </div>
+</div>
+
+<script>
+    function abrirModal() {
+        fetch('/Vehiculos/Create')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("modal-body").innerHTML = html;
+                document.getElementById("modal").style.display = "flex";
+            });
+    }
+
+    function cerrarModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+</script>

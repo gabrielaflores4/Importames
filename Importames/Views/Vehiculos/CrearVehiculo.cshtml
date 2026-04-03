@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+
+<form method="post" action="/Vehiculos/Create" class="form-grid">
+    <h2 class="form-title">Registrar Vehículo</h2>
+
+    <div class="form-group">
+        <label>MARCA</label>
+        <input type="text" name="marca" required />
+    </div>
+
+    <div class="form-group">
+        <label>MODELO</label>
+        <input type="text" name="modelo" required />
+    </div>
+
+    <div class="form-group">
+        <label>AÑO</label>
+        <select name="anio" required>
+            <option value=""></option>
+            @for (int i = DateTime.Now.Year; i >= 1980; i--)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>COLOR</label>
+        <input type="text" name="color" required />
+    </div>
+
+    <div class="form-group full">
+        <label>VIN</label>
+        <input type="text" name="vin" required />
+    </div>
+
+    <div class="form-group">
+        <label>CLIENTE</label>
+        <select name="clienteId">
+            <option value=""></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>COSTO</label>
+        <input type="number" name="costo" step="0.01" required />
+    </div>
+
+    <div class="form-group full">
+        <label>ESTADO INICIAL</label>
+        <select name="estado" required>
+            <option value=""></option>
+            <option value="En tránsito">En tránsito</option>
+            <option value="En aduana">En aduana</option>
+            <option value="En preparación">En preparación</option>
+            <option value="Trámites pendientes">Trámites pendientes</option>
+            <option value="Listo para entrega">Listo para entrega</option>
+            <option value="Entregado">Entregado</option>
+        </select>
+    </div>
+
+    <div class="modal-actions full">
+        <button type="button" class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
+        <button type="submit" class="btn btn-save">Guardar</button>
+    </div>
+</form>

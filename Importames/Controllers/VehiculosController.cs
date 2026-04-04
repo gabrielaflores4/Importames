@@ -132,5 +132,55 @@ namespace Importames.Controllers
             }
         }
 
+        public IActionResult Details(int id)
+        {
+            var vehiculo = _context.Vehiculos
+                .Include(v => v.Estado)
+                .Include(v => v.Cliente)
+                .FirstOrDefault(v => v.IdVehiculo == id);
+
+            var historial = _context.Historiales
+                .Include(h => h.Estado)
+                .Where(h => h.IdVehiculo == id)
+                .OrderByDescending(h => h.FechaCambio)
+                .ToList();
+
+            ViewBag.Estados = _context.Estados.ToList();
+            ViewBag.Historial = historial;
+
+            return View("DetallesVehiculo", vehiculo);
+        }
+
+        [HttpPost]
+        [IgnoreAntiforgeryToken]
+        public IActionResult UpdateEstado(int idVehiculo, int idEstado)
+        {
+            try
+            {
+                var vehiculo = _context.Vehiculos.Find(idVehiculo);
+                if (vehiculo == null)
+                    return Json(new { exito = false, mensaje = "Vehículo no encontrado." });
+
+                vehiculo.IdEstado = idEstado;
+                _context.Vehiculos.Update(vehiculo);
+
+                var historial = new HistorialEstadoModel
+                {
+                    IdVehiculo = idVehiculo,
+                    IdEstado = idEstado,
+                    IdUsuario = 1,
+                    FechaCambio = DateTime.Now
+                };
+                _context.Historiales.Add(historial);
+                _context.SaveChanges();
+
+                return Json(new { exito = true, mensaje = "Estado actualizado correctamente." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { exito = false, mensaje = "Ocurrió un error al actualizar el estado." });
+            }
+        }
+
     }
 }

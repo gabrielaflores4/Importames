@@ -48,40 +48,33 @@
         <tbody>
             @foreach (var v in Model)
             {
-                <tr>
+                <tr onclick="abrirModalDetalles(@v.IdVehiculo)" style="cursor: pointer;">
                     <td>@v.Vin</td>
                     <td>@v.Marca @v.Modelo</td>
                     <td>@($"{v.Cliente.Nombre} {v.Cliente.Apellido}")</td>
                     <td>
                         @{
                             string clase = "estado-badge";
-
                             switch (v.Estado.NombreEstado)
                             {
                                 case "En tránsito":
                                     clase += " badge-cyan";
                                     break;
-
                                 case "En aduana":
                                     clase += " badge-yellow";
                                     break;
-
                                 case "En preparación":
                                     clase += " badge-purple";
                                     break;
-
                                 case "Trámites pendientes":
                                     clase += " badge-red";
                                     break;
-
                                 case "Listo para entrega":
                                     clase += " badge-blue";
                                     break;
-
                                 case "Entregado":
                                     clase += " badge-green";
                                     break;
-
                                 default:
                                     clase += " badge-blue";
                                     break;
@@ -91,11 +84,10 @@
                     </td>
                     <td>@v.Anio</td>
                     <td>$@v.Costo</td>
-                    <td class="acciones">
+                    <td class="acciones" onclick="event.stopPropagation()">
                         <button class="btn btn-edit" onclick="abrirModalEditar(@v.IdVehiculo)">
                             Editar
                         </button>
-
                         <button class="btn btn-delete">
                             Eliminar
                         </button>
@@ -111,5 +103,13 @@
     <div class="modal-content" id="modal-body">
     </div>
 </div>
-
+<div id="modal-confirm" class="modal-confirm">
+    <div class="modal-confirm-content">
+        <p id="confirm-mensaje" class="modal-confirm-mensaje"></p>
+        <div class="modal-confirm-actions">
+            <button class="btn btn-cancel" onclick="cancelarConfirm()">Cancelar</button>
+            <button class="btn btn-save" id="confirm-aceptar">Aceptar</button>
+        </div>
+    </div>
+</div>
 <script src="~/js/vehiculos.js"></script>

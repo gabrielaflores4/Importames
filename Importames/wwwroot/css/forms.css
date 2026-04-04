@@ -114,3 +114,77 @@
     font-size: 0.85rem;
     display: none;
 }
+
+.historial-lista {
+    background: #181c27;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.historial-item {
+    border-bottom: 1px solid #334155;
+    padding-bottom: 8px;
+}
+
+    .historial-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+.historial-estado {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.historial-fecha {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+.btn-amarillo {
+    background: #f59e0b !important;
+}
+
+.modal-confirm {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-confirm-content {
+    background: #13161e;
+    padding: 30px;
+    border-radius: 16px;
+    width: 400px;
+    max-width: 95%;
+    border: 1px solid #334155;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-confirm-mensaje {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.modal-confirm-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}

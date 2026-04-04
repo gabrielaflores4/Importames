@@ -1,0 +1,40 @@
+﻿@model Importames.Models.VehiculoModel
+@{
+    Layout = null;
+}
+
+<div class="form-grid">
+    <h2 class="form-title">Detalles Vehículo</h2>
+    <div id="mensaje-modal" class="mensaje-form"></div>
+
+    <div class="form-group full">
+        <label>ACTUALIZAR ESTADO</label>
+        <div style="display: flex; gap: 10px;">
+            <select id="nuevoEstado">
+                <option value=""></option>
+                @foreach (var e in ViewBag.Estados)
+                {
+                    <option value="@e.IdEstado">@e.NombreEstado</option>
+                }
+            </select>
+            <button type="button" class="btn btn-save" onclick="actualizarEstado(@Model.IdVehiculo)">Guardar</button>
+        </div>
+    </div>
+
+    <div class="form-group full">
+        <label>HISTORIAL DE ESTADOS</label>
+        <div class="historial-lista">
+            @foreach (var h in ViewBag.Historial)
+            {
+                <div class="historial-item">
+                    <div class="historial-estado">@h.Estado.NombreEstado</div>
+                    <div class="historial-fecha">@h.FechaCambio.ToString("yyyy-MM-dd HH:mm")</div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="modal-actions full">
+        <button type="button" class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
+    </div>
+</div>

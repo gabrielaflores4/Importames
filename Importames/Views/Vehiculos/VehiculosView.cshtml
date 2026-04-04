@@ -112,26 +112,4 @@
     </div>
 </div>
 
-<script>
-    function abrirModal() {
-        fetch('/Vehiculos/Create')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("modal-body").innerHTML = html;
-                document.getElementById("modal").style.display = "flex";
-            });
-    }
-
-    function cerrarModal() {
-        document.getElementById("modal").style.display = "none";
-    }
-
-    function abrirModalEditar(id) {
-        fetch('/Vehiculos/Edit/' + id)
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("modal-body").innerHTML = html;
-                document.getElementById("modal").style.display = "flex";
-            });
-    }
-</script>
+<script src="~/js/vehiculos.js"></script>

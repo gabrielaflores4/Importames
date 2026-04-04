@@ -2,9 +2,9 @@
 @{
     Layout = null;
 }
-
-<form method="post" action="/Vehiculos/Create" class="form-grid">
+<form id="formVehiculo" class="form-grid" autocomplete="off">
     <h2 class="form-title">Registrar Vehículo</h2>
+    <div id="mensaje-modal" class="mensaje-form"></div>
 
     <div class="form-group">
         <label>MARCA</label>
@@ -34,7 +34,7 @@
 
     <div class="form-group full">
         <label>VIN</label>
-        <input type="text" name="vin" required />
+        <input type="text" name="vin" maxlength="17" required />
     </div>
 
     <div class="form-group">
@@ -50,22 +50,22 @@
 
     <div class="form-group">
         <label>COSTO</label>
-        <input type="number" name="costo" step="0.01" required />
+        <input type="number" name="costo" step="0.01" min="0.01" required />
     </div>
 
     <div class="form-group full">
         <label>ESTADO INICIAL</label>
-        <select name="IdEstado" required>
-            <option value=""></option>
-            @foreach (var e in ViewBag.Estados)
-            {
-                <option value="@e.IdEstado">@e.NombreEstado</option>
-            }
+        @{
+            var primerEstado = ((IEnumerable<Importames.Models.EstadosModel>)ViewBag.Estados).First();
+        }
+        <input type="hidden" name="IdEstado" value="@primerEstado.IdEstado" />
+        <select disabled>
+            <option>@primerEstado.NombreEstado</option>
         </select>
     </div>
 
     <div class="modal-actions full">
         <button type="button" class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
-        <button type="submit" class="btn btn-save">Guardar</button>
+        <button type="button" class="btn btn-save" onclick="guardarVehiculo()">Guardar</button>
     </div>
 </form>

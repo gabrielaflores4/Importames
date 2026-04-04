@@ -2,77 +2,64 @@
 @{
     Layout = null;
 }
-
-<form method="post" action="/Vehiculos/Edit" class="form-grid">
+<form id="formEditar" class="form-grid" autocomplete="off">
     <h2 class="form-title">Editar Vehículo</h2>
-
+    <div id="mensaje-modal" class="mensaje-form"></div>
     <input type="hidden" name="IdVehiculo" value="@Model.IdVehiculo" />
 
     <div class="form-group">
         <label>MARCA</label>
         <input type="text" name="marca" value="@Model.Marca" required />
     </div>
-
     <div class="form-group">
         <label>MODELO</label>
         <input type="text" name="modelo" value="@Model.Modelo" required />
     </div>
-
     <div class="form-group">
         <label>AÑO</label>
         <select name="anio" required>
             @for (int i = DateTime.Now.Year; i >= 1980; i--)
             {
-                <option value="@i" selected="@(Model.Anio == i)">
-                    @i
-                </option>
+                <option value="@i" selected="@(Model.Anio == i)">@i</option>
             }
         </select>
     </div>
-
     <div class="form-group">
         <label>COLOR</label>
         <input type="text" name="color" value="@Model.Color" required />
     </div>
-
     <div class="form-group full">
         <label>VIN</label>
-        <input type="text" name="vin" value="@Model.Vin" required />
+        <input type="text" name="vin" value="@Model.Vin" maxlength="17" minlength="17" required />
     </div>
-
     <div class="form-group">
         <label>CLIENTE</label>
         <select name="IdCliente" required>
             @foreach (var c in ViewBag.Clientes)
             {
-                <option value="@c.IdCliente"
-                        selected="@(Model.IdCliente == c.IdCliente)">
+                <option value="@c.IdCliente" selected="@(Model.IdCliente == c.IdCliente)">
                     @($"{c.Nombre} {c.Apellido}")
                 </option>
             }
         </select>
     </div>
-
     <div class="form-group">
         <label>COSTO</label>
-        <input type="number" name="costo" value="@Model.Costo" step="0.01" required />
+        <input type="number" name="costo" value="@Model.Costo" step="0.01" min="0.01" required />
     </div>
-
     <div class="form-group full">
         <label>ESTADO</label>
         <select name="IdEstado" required>
             @foreach (var e in ViewBag.Estados)
             {
-                <option value="@e.IdEstado"
-                        selected="@(Model.IdEstado == e.IdEstado)">
+                <option value="@e.IdEstado" selected="@(Model.IdEstado == e.IdEstado)">
                     @e.NombreEstado
                 </option>
             }
         </select>
     </div>
-
     <div class="modal-actions full">
         <button type="button" class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
-        <button type="submit" class="btn btn-save">Guardar Cambios</button>
+        <button type="button" class="btn btn-save" onclick="editarVehiculo()">Guardar Cambios</button>
     </div>
 </form>

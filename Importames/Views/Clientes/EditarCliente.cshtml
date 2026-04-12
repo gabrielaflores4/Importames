@@ -1,0 +1,46 @@
+﻿@model Importames.Models.ClienteModel
+@{
+    Layout = null;
+}
+<form id="formEditarCliente" class="form-grid" autocomplete="off">
+    <h2 class="form-title">Editar Cliente</h2>
+    <div id="mensaje-modal" class="mensaje-form"></div>
+    
+    <input type="hidden" name="IdCliente" value="@Model.IdCliente" />
+    <input type="hidden" name="FechaRegistro" value="@Model.FechaRegistro.ToString("yyyy-MM-ddTHH:mm:ss")" />
+
+    <div class="form-group">
+        <label>NOMBRE</label>
+        <input type="text" name="Nombre" value="@Model.Nombre" required />
+    </div>
+
+    <div class="form-group">
+        <label>APELLIDO</label>
+        <input type="text" name="Apellido" value="@Model.Apellido" required />
+    </div>
+
+    <div class="form-group full">
+        <label>DUI</label>
+        <input type="text" name="Dui" value="@Model.Dui" maxlength="10" required placeholder="00000000-0" />
+    </div>
+
+    <div class="form-group">
+        <label>TELÉFONO</label>
+        <input type="text" name="Telefono" value="@Model.Telefono" maxlength="8" required />
+    </div>
+
+    <div class="form-group">
+        <label>CORREO ELECTRÓNICO</label>
+        <input type="email" name="Correo" value="@Model.Correo" required />
+    </div>
+
+    <div class="form-group full">
+        <label>DIRECCIÓN</label>
+        <input type="text" name="Direccion" value="@Model.Direccion" required />
+    </div>
+
+    <div class="modal-actions full">
+        <button type="button" class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
+        <button type="button" class="btn btn-save" onclick="editarCliente()">Guardar Cambios</button>
+    </div>
+</form>

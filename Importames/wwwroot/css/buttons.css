@@ -48,3 +48,13 @@
     .btn-delete:hover {
         background: rgba(239, 68, 68, 0.1);
     }
+
+.btn-details {
+    background: transparent;
+    color: #facc15;
+    border: 1px solid #facc15;
+}   
+
+    .btn-details:hover {
+        background: rgba(250, 204, 21, 0.1);
+    }

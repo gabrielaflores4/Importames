@@ -1,0 +1,47 @@
+﻿@model Importames.Models.ClienteModel
+@{
+    Layout = null;
+}
+
+<div class="form-grid">
+    <h2 class="form-title">Detalles del Cliente</h2>
+    
+    <div class="form-group">
+        <label>CÓDIGO</label>
+        <input type="text" value="@Model.IdCliente" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group">
+        <label>DUI</label>
+        <input type="text" value="@Model.Dui" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group full">
+        <label>NOMBRE COMPLETO</label>
+        <input type="text" value="@Model.Nombre @Model.Apellido" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group">
+        <label>TELÉFONO</label>
+        <input type="text" value="@Model.Telefono" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group">
+        <label>CORREO ELECTRÓNICO</label>
+        <input type="email" value="@Model.Correo" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group full">
+        <label>DIRECCIÓN</label>
+        <input type="text" value="@Model.Direccion" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group full">
+        <label>FECHA DE REGISTRO</label>
+        <input type="text" value="@Model.FechaRegistro.ToString("dd/MM/yyyy")" readonly class="input-readonly" />
+    </div>
+
+    <div class="modal-actions full">
+        <button type="button" class="btn btn-cancel" onclick="cerrarModal()">Cerrar</button>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Importames.Models.ClienteModel>
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="table-header">
+
+    <div class="table-filters">
+        <input type="text" placeholder="Buscar" class="input-search" />
+    </div>
+
+    <button class="btn btn-add" onclick="abrirModal()">
+        <i class="bi bi-plus"></i> Registrar Cliente
+    </button>
+
+</div>
+
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CÓDIGO</th>
+                <th>NOMBRE</th>
+                <th>CORREO</th>
+                <th>TELÉFONO</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr onclick="abrirModalDetalles(@c.IdCliente)" style="cursor: pointer;">
+                    <td>@c.IdCliente</td>
+                    <td>@c.Nombre @c.Apellido</td>
+                    <td>@c.Correo</td>
+                    <td>@c.Telefono</td>
+                    <td class="acciones" onclick="event.stopPropagation()">
+                        <button class="btn btn-details" onclick="abrirModalDetalles(@c.IdCliente)">
+                            Detalles
+                        </button>
+                        <button class="btn btn-edit" onclick="abrirModalEditar(@c.IdCliente)">
+                            Editar
+                        </button>
+                        <button class="btn btn-delete" onclick="eliminarCliente(@c.IdCliente)">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content" id="modal-body">
+    </div>
+</div>
+<div id="modal-confirm" class="modal-confirm">
+    <div class="modal-confirm-content">
+        <p id="confirm-mensaje" class="modal-confirm-mensaje"></p>
+        <div class="modal-confirm-actions">
+            <button class="btn btn-cancel" onclick="cancelarConfirm()">Cancelar</button>
+            <button class="btn btn-save" id="confirm-aceptar">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content" id="modal-body">
+    </div>
+</div>
+<div id="modal-confirm" class="modal-confirm">
+    <div class="modal-confirm-content">
+        <p id="confirm-mensaje" class="modal-confirm-mensaje"></p>
+        <div class="modal-confirm-actions">
+            <button class="btn btn-cancel" onclick="cancelarConfirm()">Cancelar</button>
+            <button class="btn btn-save" id="confirm-aceptar">Aceptar</button>
+        </div>
+    </div>
+</div>
+<script src="~/js/clientes.js"></script>

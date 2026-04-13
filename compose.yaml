@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # Contenedor 1: La Base de Datos
+  db:
+    image: mariadb:latest
+    container_name: importames_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234 # Cambia esto por una contraseña segura
+      MYSQL_DATABASE: importames
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      # Ejecuta el script SQL automáticamente la primera vez que se crea la base de datos
+      - ./ImportamesSQL.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # Contenedor 2: Importames App
+  app:
+    build: 
+      context: .
+      dockerfile: Importames/Dockerfile
+    container_name: importames_app
+    restart: always
+    ports:
+      - "5216:5216"
+    depends_on:
+      - db
+    environment:
+      # Sobrescribe el appsettings.json para usar el nombre del servicio 'db'
+      - ConnectionStrings__DefaultConnection=Server=db;Database=importames;Uid=root;Pwd=1234;
+
+volumes:
+  db_data:

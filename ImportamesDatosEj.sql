@@ -1,0 +1,100 @@
+-- ESTADOS
+INSERT INTO estados_veh (nombre_estado) VALUES
+('En tránsito'),
+('En aduana'),
+('En preparación'),
+('Trámites pendientes'),
+('Listo para entrega'),
+('Entregado');
+
+-- CLIENTES
+INSERT INTO clientes (nombre, apellido, telefono, correo, direccion, fecha_registro, dui) VALUES
+('Juan','Pérez','70000001','juan1@gmail.com','Santa Ana',CURDATE(),'04567823-1'),
+('María','López','70000002','maria2@gmail.com','San Salvador',CURDATE(),'12345678-9'),
+('Luis','Martínez','70000003','luis3@gmail.com','Ahuachapán',CURDATE(),'06789432-5'),
+('Ana','García','70000004','ana4@gmail.com','Sonsonate',CURDATE(),'09876543-2'),
+('Pedro','Hernández','70000005','pedro5@gmail.com','La Libertad',CURDATE(),'11223344-6'),
+('Sofía','Castro','70000006','sofia6@gmail.com','Metapán',CURDATE(),'22334455-7'),
+('Carlos','Ramírez','70000007','carlos7@gmail.com','Santa Tecla',CURDATE(),'33445566-8'),
+('Lucía','Morales','70000008','lucia8@gmail.com','Usulután',CURDATE(),'44556677-3'),
+('José','Vargas','70000009','jose9@gmail.com','San Miguel',CURDATE(),'55667788-4'),
+('Elena','Rivas','70000010','elena10@gmail.com','Chalatenango',CURDATE(),'66778899-1'),
+('Miguel','Flores','70000011','miguel11@gmail.com','Santa Ana',CURDATE(),'77889900-2'),
+('Carmen','Ortiz','70000012','carmen12@gmail.com','San Salvador',CURDATE(),'88990011-3'),
+('Raúl','Mendoza','70000013','raul13@gmail.com','Ahuachapán',CURDATE(),'99001122-4'),
+('Patricia','Reyes','70000014','patricia14@gmail.com','Sonsonate',CURDATE(),'10111213-5'),
+('Jorge','Cruz','70000015','jorge15@gmail.com','La Libertad',CURDATE(),'21222324-6'),
+('Diana','Navarro','70000016','diana16@gmail.com','Metapán',CURDATE(),'32333435-7'),
+('Andrés','Peña','70000017','andres17@gmail.com','Santa Tecla',CURDATE(),'43444546-8'),
+('Verónica','Soto','70000018','vero18@gmail.com','Usulután',CURDATE(),'54555657-9'),
+('Ricardo','Campos','70000019','ricardo19@gmail.com','San Miguel',CURDATE(),'65666768-1'),
+('Paola','Silva','70000020','paola20@gmail.com','Chalatenango',CURDATE(),'76777879-2');
+
+-- USUARIOS
+INSERT INTO usuarios (nombre, apellido, username, password, rol, telefono, correo) VALUES
+('Admin','Principal','admin','1234','Administrador','70010001','admin@gmail.com'),
+('Carlos','Ramírez','carlos','1234','Empleado','70010002','carlos@gmail.com'),
+('Lucía','Morales','lucia','1234','Empleado','70010003','lucia@gmail.com'),
+('José','Vargas','jose','1234','Empleado','70010004','jose@gmail.com'),
+('Ana','García','ana','1234','Empleado','70010005','ana@gmail.com'),
+('Pedro','Hernández','pedro','1234','Empleado','70010006','pedro@gmail.com'),
+('Luis','Martínez','luis','1234','Empleado','70010007','luis@gmail.com'),
+('Sofía','Castro','sofia','1234','Empleado','70010008','sofia@gmail.com'),
+('Miguel','Flores','miguel','1234','Empleado','70010009','miguel@gmail.com'),
+('Carmen','Ortiz','carmen','1234','Empleado','70010010','carmen@gmail.com'),
+('Raúl','Mendoza','raul','1234','Empleado','70010011','raul@gmail.com'),
+('Patricia','Reyes','patricia','1234','Empleado','70010012','patricia@gmail.com'),
+('Jorge','Cruz','jorge','1234','Empleado','70010013','jorge@gmail.com'),
+('Diana','Navarro','diana','1234','Empleado','70010014','diana@gmail.com'),
+('Andrés','Peña','andres','1234','Empleado','70010015','andres@gmail.com'),
+('Verónica','Soto','vero','1234','Empleado','70010016','vero@gmail.com'),
+('Ricardo','Campos','ricardo','1234','Empleado','70010017','ricardo@gmail.com'),
+('Paola','Silva','paola','1234','Empleado','70010018','paola@gmail.com'),
+('Elena','Rivas','elena','1234','Empleado','70010019','elena@gmail.com'),
+('Mario','Pineda','mario','1234','Empleado','70010020','mario@gmail.com');
+
+-- VEHICULOS
+INSERT INTO vehiculos (id_cliente, id_estado, marca, modelo, anio, color, vin, costo, fecha_ingreso) VALUES
+(1,1,'Toyota','Corolla',2020,'Blanco','1HGCM82633A000001',8500,CURDATE()),
+(2,2,'Honda','Civic',2019,'Negro','1HGCM82633A000002',9200,CURDATE()),
+(3,3,'Ford','Focus',2018,'Azul','1HGCM82633A000003',7800,CURDATE()),
+(4,4,'Chevrolet','Cruze',2021,'Rojo','1HGCM82633A000004',10500,CURDATE()),
+(5,5,'Nissan','Sentra',2020,'Gris','1HGCM82633A000005',8900,CURDATE()),
+(6,6,'Hyundai','Elantra',2017,'Blanco','1HGCM82633A000006',7200,CURDATE()),
+(7,1,'Kia','Rio',2019,'Negro','1HGCM82633A000007',8300,CURDATE()),
+(8,2,'Mazda','3',2022,'Rojo','1HGCM82633A000008',12000,CURDATE()),
+(9,3,'Toyota','Yaris',2018,'Azul','1HGCM82633A000009',7500,CURDATE()),
+(10,4,'Honda','Accord',2021,'Gris','1HGCM82633A000010',15000,CURDATE()),
+(11,5,'Ford','Fusion',2019,'Negro','1HGCM82633A000011',9800,CURDATE()),
+(12,6,'Chevrolet','Malibu',2017,'Blanco','1HGCM82633A000012',7000,CURDATE()),
+(13,1,'Nissan','Versa',2020,'Rojo','1HGCM82633A000013',8700,CURDATE()),
+(14,2,'Hyundai','Accent',2018,'Gris','1HGCM82633A000014',7600,CURDATE()),
+(15,3,'Kia','Sportage',2022,'Negro','1HGCM82633A000015',18000,CURDATE()),
+(16,4,'Mazda','CX-5',2021,'Azul','1HGCM82633A000016',20000,CURDATE()),
+(17,5,'Toyota','Hilux',2020,'Blanco','1HGCM82633A000017',25000,CURDATE()),
+(18,6,'Honda','CR-V',2019,'Rojo','1HGCM82633A000018',21000,CURDATE()),
+(19,1,'Ford','Escape',2018,'Gris','1HGCM82633A000019',16000,CURDATE()),
+(20,2,'Chevrolet','Tracker',2022,'Negro','1HGCM82633A000020',19000,CURDATE());
+
+-- HISTORIAL
+INSERT INTO historial_estado (id_vehiculo, id_estado, id_usuario, fecha_cambio) VALUES
+(1,1,1,NOW()),
+(2,2,2,NOW()),
+(3,3,3,NOW()),
+(4,4,4,NOW()),
+(5,5,5,NOW()),
+(6,6,6,NOW()),
+(7,1,7,NOW()),
+(8,2,8,NOW()),
+(9,3,9,NOW()),
+(10,4,10,NOW()),
+(11,5,11,NOW()),
+(12,6,12,NOW()),
+(13,1,13,NOW()),
+(14,2,14,NOW()),
+(15,3,15,NOW()),
+(16,4,16,NOW()),
+(17,5,17,NOW()),
+(18,6,18,NOW()),
+(19,1,19,NOW()),
+(20,2,20,NOW());

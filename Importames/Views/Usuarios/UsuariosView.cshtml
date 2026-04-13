@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Importames.Models.UsuarioModel>
 @{
     ViewData["Title"] = "Usuarios";
+    var rol = Context.Session.GetString("rol_usuario");
 }
 
 <div class="table-header">
@@ -9,9 +10,12 @@
         <input type="text" placeholder="Buscar" class="input-search" />
     </div>
 
-    <button class="btn btn-add" onclick="abrirModal()">
-        <i class="bi bi-plus"></i> Registrar Usuario
-    </button>
+    @if (rol == "Administrador")
+    {
+        <button class="btn btn-add" onclick="abrirModal()">
+            <i class="bi bi-plus"></i> Registrar Usuario
+        </button>
+    }
 
 </div>
 
@@ -24,46 +28,52 @@
                 <th>USERNAME</th>
                 <th>ROL</th>
                 <th>TELÉFONO</th>
-                <th>ACCIONES</th>
+
+                @if (rol == "Administrador")
+                {
+                    <th>ACCIONES</th>
+                }
             </tr>
         </thead>
 
         <tbody>
             @foreach (var u in Model)
             {
-                <tr onclick="abrirModalDetalles(@u.IdUsuario)" style="cursor: pointer;">
+                <tr style="cursor:pointer;">
                     <td>@u.IdUsuario</td>
                     <td>@u.Nombre @u.Apellido</td>
                     <td>@u.Username</td>
                     <td>@u.Rol</td>
                     <td>@u.Telefono</td>
 
-                    <td class="acciones" onclick="event.stopPropagation()">
-                        <button class="btn btn-details" onclick="abrirModalDetalles(@u.IdUsuario)">
-                            Detalles
-                        </button>
+                    @if (rol == "Administrador")
+                    {
+                        <td class="acciones" onclick="event.stopPropagation()">
 
-                        <button class="btn btn-edit" onclick="abrirModalEditar(@u.IdUsuario)">
-                            Editar
-                        </button>
+                            <button class="btn btn-details" onclick="abrirModalDetalles(@u.IdUsuario)">
+                                Detalles
+                            </button>
 
-                        <button class="btn btn-delete" onclick="eliminarUsuario(@u.IdUsuario)">
-                            Eliminar
-                        </button>
-                    </td>
+                            <button class="btn btn-edit" onclick="abrirModalEditar(@u.IdUsuario)">
+                                Editar
+                            </button>
+
+                            <button class="btn btn-delete" onclick="eliminarUsuario(@u.IdUsuario)">
+                                Eliminar
+                            </button>
+
+                        </td>
+                    }
                 </tr>
             }
         </tbody>
     </table>
 </div>
 
-<!-- MODAL PRINCIPAL -->
 <div id="modal" class="modal">
-    <div class="modal-content" id="modal-body">
-    </div>
+    <div class="modal-content" id="modal-body"></div>
 </div>
 
-<!-- MODAL CONFIRMACIÓN -->
 <div id="modal-confirm" class="modal-confirm">
     <div class="modal-confirm-content">
         <p id="confirm-mensaje" class="modal-confirm-mensaje"></p>

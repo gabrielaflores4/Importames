@@ -48,7 +48,7 @@
         <tbody>
             @foreach (var v in Model)
             {
-                <tr onclick="abrirModalDetalles(@v.IdVehiculo)" style="cursor: pointer;">
+                <tr>
                     <td>@v.Vin</td>
                     <td>@v.Marca @v.Modelo</td>
                     <td>@($"{v.Cliente.Nombre} {v.Cliente.Apellido}")</td>
@@ -84,11 +84,16 @@
                     </td>
                     <td>@v.Anio</td>
                     <td>$@v.Costo</td>
-                    <td class="acciones" onclick="event.stopPropagation()">
+                    <td class="acciones">
+                        <button class="btn btn-details" onclick="abrirModalDetalles(@v.IdVehiculo)">
+                            Detalles
+                        </button>
+
                         <button class="btn btn-edit" onclick="abrirModalEditar(@v.IdVehiculo)">
                             Editar
                         </button>
-                        <button class="btn btn-delete">
+
+                        <button class="btn btn-delete" onclick="confirmarEliminar(@v.IdVehiculo)">
                             Eliminar
                         </button>
                     </td>

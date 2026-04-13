@@ -182,5 +182,33 @@ namespace Importames.Controllers
             }
         }
 
+        [HttpPost]
+        [IgnoreAntiforgeryToken]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var vehiculo = _context.Vehiculos
+                    .Include(v => v.Historiales)
+                    .FirstOrDefault(v => v.IdVehiculo == id);
+
+                if (vehiculo == null)
+                    return Json(new { exito = false, mensaje = "Vehículo no encontrado." });
+
+                if (vehiculo.Historiales != null && vehiculo.Historiales.Any())
+                {
+                    _context.Historiales.RemoveRange(vehiculo.Historiales);
+                }
+
+                _context.Vehiculos.Remove(vehiculo);
+                _context.SaveChanges();
+
+                return Json(new { exito = true, mensaje = "Vehículo eliminado correctamente." });
+            }
+            catch (Exception)
+            {
+                return Json(new { exito = false, mensaje = "Ocurrió un error al eliminar el vehículo." });
+            }
+        }
     }
 }

@@ -4,75 +4,68 @@
 
 <div class="dashboard">
 
-    <!-- TARJETAS -->
     <div class="dashboard-cards">
 
-        <div class="card">
+        <div class="card red">
+            <div class="card-info">
+                <h3>Vehículos sin entregar</h3>
+                <p>@ViewBag.VehiculosPendientes</p>
+                <span>Total en progreso</span>
+            </div>
+            <div class="card-icon">
+                <i class="bi bi-car-front"></i>
+            </div>
+        </div>
+
+        <div class="card green">
+            <div class="card-info">
+                <h3>Entregados</h3>
+                <p>@ViewBag.Entregados</p>
+                <span>Total completados</span>
+            </div>
+            <div class="card-icon">
+                <i class="bi bi-check-circle"></i>
+            </div>
+        </div>
+
+        <div class="card blue">
+            <div class="card-info">
+                <h3>Costo total inventario</h3>
+                <p>$@ViewBag.TotalInventario</p>
+            </div>
+            <div class="card-icon">
+                <i class="bi bi-cash"></i>
+            </div>
+        </div>
+
+        <div class="card yellow">
+            <div class="card-info">
+                <h3>Marca más comprada</h3>
+                <p>-</p>
+                <span>0 unidades este mes</span>
+            </div>
+            <div class="card-icon">
+                <i class="bi bi-star"></i>
+            </div>
+        </div>
+
+        <div class="card blue">
+            <div class="card-info">
+                <h3>Empleados registrados</h3>
+                <p>@ViewBag.Empleados</p>
+            </div>
+            <div class="card-icon">
+                <i class="bi bi-person"></i>
+            </div>
+        </div>
+
+        <div class="card purple">
+            <div class="card-info">
+                <h3>Clientes registrados</h3>
+                <p>@ViewBag.Clientes</p>
+            </div>
             <div class="card-icon">
                 <i class="bi bi-people"></i>
-            </div>
-            <div class="card-info">
-                <h3>Clientes</h3>
-                <p>120</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">
-                <i class="bi bi-truck"></i>
-            </div>
-            <div class="card-info">
-                <h3>Vehículos</h3>
-                <p>45</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">
-                <i class="bi bi-person-badge"></i>
-            </div>
-            <div class="card-info">
-                <h3>Usuarios</h3>
-                <p>8</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">
-                <i class="bi bi-currency-dollar"></i>
-            </div>
-            <div class="card-info">
-                <h3>Ventas</h3>
-                <p>$12,500</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- SECCIÓN INFERIOR -->
-    <div class="dashboard-bottom">
-
-        <!-- ACTIVIDAD -->
-        <div class="panel">
-            <h3>Actividad Reciente</h3>
-
-            <ul class="activity-list">
-                <li>✔ Se registró un nuevo cliente</li>
-                <li>✔ Se agregó un vehículo</li>
-                <li>✔ Usuario actualizado</li>
-                <li>✔ Venta realizada</li>
-            </ul>
-        </div>
-
-        <!-- RESUMEN -->
-        <div class="panel">
-            <h3>Resumen del Sistema</h3>
-
-            <p>Bienvenido al sistema de gestión <strong>Importames</strong>.</p>
-            <p>Desde aquí puedes administrar clientes, vehículos y usuarios.</p>
-
-            <div class="status">
-                <span class="status-dot active"></span> Sistema activo
             </div>
         </div>
 

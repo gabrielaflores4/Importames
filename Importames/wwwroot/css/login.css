@@ -22,7 +22,7 @@
 .login-logo {
     display: flex;
     justify-content: center;
-
+    margin-bottom: 40px;
 }
 
     .login-logo img {

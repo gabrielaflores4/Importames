@@ -1,0 +1,281 @@
+﻿@{
+    ViewData["Title"] = "Cotizaciones";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/cotizaciones.css" />
+}
+
+<div class="cotizacion-container">
+
+  
+    <div>
+
+
+       
+        <div class="panel-vehiculo">
+
+            <div class="titulo">
+                Datos vehiculo
+            </div>
+
+            <table class="tabla-costos">
+
+                <tr class="gris">
+                    <td>APUESTA DEL VEHICULO</td>
+                    <td>
+                        <input type="text" class="textbox" id="apuestaVehiculo">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>PRECIO DE VEHICULO CON FEES</td>
+                    <td>
+                        <input type="text" class="textbox" id="precioFees">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>COMISION</td>
+                    <td>
+                        <input type="text" class="textbox" id="comision">
+                    </td>
+                </tr>
+
+
+                <tr class="verde">
+                    <td>GRUA</td>
+                    <td>
+                        <input type="text" class="textbox" id="grua">
+                    </td>
+                </tr>
+
+                <tr class="verde">
+                    <td>BL</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="verde">
+                    <td>FLETE</td>
+                    <td>
+                        <input type="text" class="textbox" id="flete">
+                    </td>
+                </tr>
+
+                <tr class="verde">
+                    <td>COMISION DE FLETE</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>IMPUESTO ADUANA</td>
+                    <td>
+                        <input type="text" class="textbox" id="impuesto">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>TRAMITE ADUANAL</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>GRUA DE ADUANA</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>TRANSFERENCIA</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>STORAGE</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>ENVIO DE FEDEX IAAI</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>VENTA</td>
+                    <td>
+                        <input type="text" class="textbox">
+                    </td>
+                </tr>
+
+                <tr class="beige">
+                    <td>PAGO A CUENTA</td>
+                    <td>
+                        <input type="text" class="textbox" id="pagoCuenta">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>REPARACION PINTOR</td>
+                    <td>
+                        <input type="text" class="textbox" value="0">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>REPUESTOS</td>
+                    <td>
+                        <input type="text" class="textbox" value="0">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>TRAMITE DE PLACAS</td>
+                    <td>
+                        <input type="text" class="textbox" value="0">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>AUTORIZACION ADUANAL</td>
+                    <td>
+                        <input type="text" class="textbox" value="0">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>EMISION DE GASES</td>
+                    <td>
+                        <input type="text" class="textbox" value="0">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>EXPERTICIE</td>
+                    <td>
+                        <input type="text" class="textbox" value="0">
+                    </td>
+                </tr>
+
+                <tr class="gris">
+                    <td>EXPERTICIE EN SISTEMA</td>
+                    <td>
+                        <input type="text" class="textbox" value="0">
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    
+
+
+
+        <div class="acciones-superiores">
+
+            <button class="btn-pdf" style="width:70%;" onclick="window.location.href='@Url.Action("PDF", "PDF")'">
+                LISTO!
+            </button>
+
+            <button type="button" class="btn-buscar" style="width:30%;" onclick="window.open('http://almacenadoranejapa.com/#opc_calculadora', '_blank')">
+
+                Calcular Impuesto
+
+            </button>
+
+        </div>
+
+    </div>
+
+  
+    <div class="panel-cliente">
+
+        <div class="titulo">
+            Datos del cliente
+        </div>
+
+        <table class="tabla-cliente">
+
+            <tr>
+                <td class="label">NOMBRE CLIENTE:</td>
+                <td><input type="text" class="textbox" id="nombreCliente"></td>
+            </tr>
+
+            <tr>
+                <td class="label">TELEFONO:</td>
+                <td><input type="text" class="textbox"></td>
+            </tr>
+
+            <tr>
+                <td class="label">CORREO ELECTRONICO:</td>
+                <td><input type="text" class="textbox"></td>
+            </tr>
+
+            <tr>
+                <td class="label">MARCA DE VEHICULO:</td>
+                <td><input type="text" class="textbox"></td>
+            </tr>
+
+            <tr>
+                <td class="label">FECHA DE SUBASTA:</td>
+                <td><input type="text" class="textbox"></td>
+            </tr>
+
+            <tr>
+                <td class="label">SUBASTA:</td>
+                <td>
+                    <select class="textbox">
+                        <option>COPART</option>
+                        <option>IAAI</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">NUMERO DE STOCK:</td>
+                <td><input type="text" class="textbox"></td>
+            </tr>
+
+            <tr>
+                <td class="label">LUGAR O ESTADO:</td>
+                <td><input type="text" class="textbox"></td>
+            </tr>
+
+            <tr>
+                <td class="label">ADUANA DESTINO:</td>
+                <td><input type="text" class="textbox" value="NEJAPA"></td>
+            </tr>
+
+            <tr>
+                <td class="label">NAVIERA:</td>
+                <td>
+                    <select class="textbox">
+                        <option>Polariz</option>
+                        <option>Inbakar</option>
+                        <option>MATUS</option>
+                        <option>NorthAtlantic</option>
+                    </select>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/cotizaciones.js"></script>
+}

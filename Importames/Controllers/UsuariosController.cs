@@ -151,5 +151,22 @@ namespace Importames.Controllers
                 return Json(new { exito = false, mensaje = "Error al eliminar el usuario." });
             }
         }
+
+        public IActionResult Perfil()
+        {
+            var username = HttpContext.Session.GetString("nombre_usuario");
+
+            var usuario = _context.Usuarios
+                .FirstOrDefault(u => u.Username == username);
+
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("PerfilModal", usuario);
+        }
+
+
     }
 }

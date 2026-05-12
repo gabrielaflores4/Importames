@@ -1,0 +1,40 @@
+﻿@model Importames.Models.UsuarioModel
+
+<div class="modal-overlay" id="perfilModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Mi Perfil</h3>
+            <button type="button" class="modal-close-btn" id="cerrarPerfil">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="perfil-avatar">
+                @Model.Nombre[0].ToString().ToUpper()
+            </div>
+            <div class="perfil-nombre-completo">
+                @Model.Nombre @Model.Apellido
+            </div>
+            <div class="perfil-rol">@Model.Rol</div>
+
+            <div class="perfil-campos">
+                <div class="perfil-campo">
+                    <label>Nombre</label>
+                    <span>@Model.Nombre</span>
+                </div>
+                <div class="perfil-campo">
+                    <label>Apellido</label>
+                    <span>@Model.Apellido</span>
+                </div>
+                <div class="perfil-campo">
+                    <label>Username</label>
+                    <span>@Model.Username</span>
+                </div>
+                <div class="perfil-campo">
+                    <label>Correo</label>
+                    <span>@Model.Correo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

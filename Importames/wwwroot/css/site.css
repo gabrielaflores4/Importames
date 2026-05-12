@@ -1,3 +1,18 @@
+html.sidebar-preload .sidebar {
+    width: 70px;
+    transition: none !important;
+}
+
+html.sidebar-preload .main-content {
+    margin-left: 70px;
+    transition: none !important;
+}
+
+html.sidebar-preload .topbar {
+    left: 70px;
+    transition: none !important;
+}
+
 :root {
     --primary: #ffffff;
     --bg-main: #f5f7fb;

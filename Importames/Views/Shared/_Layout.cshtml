@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="app-layout">
-        <aside class="sidebar">
+        <aside class="sidebar @(Context.Request.Cookies["sidebarClosed"] == "true" ? "closed" : "")">
             <div class="sidebar-header">
 
                 <div class="sidebar-header-left">
@@ -69,8 +69,8 @@
             </nav>
         </aside>
 
-        <main class="main-content">
-            <div class="topbar">
+        <main class="main-content @(Context.Request.Cookies["sidebarClosed"] == "true" ? "expanded" : "")">
+            <div class="topbar @(Context.Request.Cookies["sidebarClosed"] == "true" ? "expanded" : "")">
 
                 <div class="topbar-left">
                     <h2>@ViewData["Title"]</h2>
@@ -99,6 +99,5 @@
     <script src="~/js/sidebar.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-    @RenderBody()
 </body>
 </html>

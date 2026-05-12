@@ -1,8 +1,9 @@
 ﻿.table-container {
-    background: #13161e;
+    background: #f8fafc;
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid #1f2937;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.05);
 }
 
 .main-content {
@@ -37,24 +38,25 @@
         text-align: left;
         padding: 16px 18px;
         font-size: 14px;
-        color: #6b7280;
+        color: #64748b;
         text-transform: uppercase;
         letter-spacing: 1px;
+        background: #f1f5f9;
     }
 
     .table td {
         padding: 18px;
-        border-top: 1px solid #111827;
-        color: #e5e7eb;
+        border-top: 1px solid #e2e8f0;
+        color: #1e293b;
     }
 
     .table tbody tr:hover {
-        background: #020617;
+        background: #f1f5f9;
     }
 
 .vin {
     font-size: 14px;
-    color: #6b7280;
+    color: #64748b;
 }
 
 .vehiculo {
@@ -64,11 +66,12 @@
 
 .nombre {
     font-weight: 600;
+    color: #0f172a;
 }
 
 .detalle {
     font-size: 14px;
-    color: #6b7280;
+    color: #64748b;
 }
 
 .estado {
@@ -90,36 +93,37 @@
     font-size: 14px;
     min-width: 120px;
     margin: 0 auto;
+    font-weight: 600;
 }
 
 .badge-cyan {
-    background: #0e7490;
-    color: #22d3ee;
+    background: #cffafe;
+    color: #0891b2;
 }
 
 .badge-yellow {
-    background: #92400e;
-    color: #facc15;
+    background: #fef3c7;
+    color: #d97706;
 }
 
 .badge-purple {
-    background: #581c87;
-    color: #a855f7;
+    background: #ede9fe;
+    color: #7c3aed;
 }
 
 .badge-blue {
-    background: #1e3a8a;
-    color: #3b82f6;
+    background: #dbeafe;
+    color: #2563eb;
 }
 
 .badge-green {
-    background: #14532d;
-    color: #22c55e;
+    background: #dcfce7;
+    color: #16a34a;
 }
 
 .badge-red {
-    background: #7f1d1d;
-    color: #ef4444;
+    background: #fee2e2;
+    color: #dc2626;
 }
 
 .acciones {

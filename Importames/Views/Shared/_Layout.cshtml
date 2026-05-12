@@ -18,34 +18,52 @@
     <div class="app-layout">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="~/img/LogoLayout.PNG" alt="Logo" class="logo">
-                <span>Importames</span>
+
+                <div class="sidebar-header-left">
+
+                    <img src="~/img/LogoLayout.PNG" alt="Logo" class="logo">
+
+                    <span>Importames</span>
+
+                </div>
+
+                <button class="toggle-sidebar-btn" id="toggleSidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+
             </div>
+
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <div class="nav-section-title">PRINCIPAL</div>
                     <a class="nav-item" asp-area="" asp-controller="Dashboard" asp-action="Dashboard">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <i class="bi bi-house-door"></i> 
+                        <span>Inicio</span>
                     </a>
                     <a class="nav-item" asp-area="" asp-controller="Vehiculos" asp-action="Index">
-                        <i class="bi bi-truck"></i> Vehículos
+                        <i class="bi bi-truck"></i> 
+                        <span>Vehículos</span>
                     </a>
                     <a class="nav-item" asp-area="" asp-controller="Cotizaciones" asp-action="Index">
-                        <i class="bi bi-calculator"></i> Cotizaciones
+                        <i class="bi bi-calculator"></i> 
+                        <span>Cotizaciones</span>
                     </a>
                 </div>
                 <div class="nav-section">
                     <div class="nav-section-title">GESTIÓN</div>
                     <a class="nav-item" asp-area="" asp-controller="Clientes" asp-action="Index">
-                        <i class="bi bi-people"></i> Clientes
+                        <i class="bi bi-people"></i> 
+                        <span>Clientes</span>
                     </a>
                     <a class="nav-item" asp-area="" asp-controller="Usuarios" asp-action="Index">
-                        <i class="bi bi-person-badge"></i> Usuarios
+                        <i class="bi bi-person-badge"></i> 
+                        <span>Usuarios</span>
                     </a>
                 </div>
                 <div class="nav-section">
                     <a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">
-                        <i class="bi bi-box-arrow-right"></i> Logout
+                        <i class="bi bi-box-arrow-right"></i> 
+                        <span>Logout</span>
                     </a>
                 </div>
             </nav>
@@ -78,6 +96,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sidebar.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
     @RenderBody()

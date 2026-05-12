@@ -2,7 +2,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.35);
     backdrop-filter: blur(4px);
     justify-content: center;
     align-items: center;
@@ -10,13 +10,13 @@
 }
 
 .modal-content {
-    background: #13161e;
+    background: #ffffff;
     padding: 30px;
     border-radius: 16px;
     width: 700px;
     max-width: 95%;
-    border: 1px solid #181c27;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
 .form-grid {
@@ -27,13 +27,12 @@
 
 .form-title {
     grid-column: span 2;
-    color: white;
     font-size: 22px;
     margin-bottom: 10px;
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     letter-spacing: 0.3px;
-    color: var(--gray-900);
+    color: #111827;
 }
 
 .form-group {
@@ -41,13 +40,14 @@
     flex-direction: column;
     gap: 6px;
 }
+
     .form-group.full {
         grid-column: span 2;
     }
 
     .form-group label {
         font-size: 11px;
-        color: #94a3b8;
+        color: #6b7280;
         letter-spacing: 1px;
     }
 
@@ -55,9 +55,9 @@
     .form-group select {
         padding: 12px 14px;
         border-radius: 10px;
-        border: 1px solid #334155;
-        background: #181c27;
-        color: white;
+        border: 1px solid #d1d5db;
+        background: #ffffff;
+        color: #111827;
         outline: none;
         transition: 0.2s;
     }
@@ -104,20 +104,21 @@
 .input-error {
     border-color: #e74c3c !important;
 }
+
 .mensaje-form {
     grid-column: span 2;
     padding: 12px 16px;
     border-radius: 10px;
-    background-color: #2d1b1b;
-    color: #f87171;
-    border: 1px solid #7f1d1d;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
     font-size: 0.85rem;
     display: none;
 }
 
 .historial-lista {
-    background: #181c27;
-    border: 1px solid #334155;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 16px;
     display: flex;
@@ -128,7 +129,7 @@
 }
 
 .historial-item {
-    border-bottom: 1px solid #334155;
+    border-bottom: 1px solid #e5e7eb;
     padding-bottom: 8px;
 }
 
@@ -138,12 +139,12 @@
     }
 
 .historial-estado {
-    color: white;
+    color: #111827;
     font-size: 0.9rem;
 }
 
 .historial-fecha {
-    color: #94a3b8;
+    color: #6b7280;
     font-size: 0.75rem;
     margin-top: 2px;
 }
@@ -156,7 +157,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.35);
     backdrop-filter: blur(4px);
     justify-content: center;
     align-items: center;
@@ -164,13 +165,13 @@
 }
 
 .modal-confirm-content {
-    background: #13161e;
+    background: #ffffff;
     padding: 30px;
     border-radius: 16px;
     width: 400px;
     max-width: 95%;
-    border: 1px solid #334155;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -178,7 +179,7 @@
 }
 
 .modal-confirm-mensaje {
-    color: white;
+    color: #111827;
     font-size: 1rem;
     margin: 0;
 }

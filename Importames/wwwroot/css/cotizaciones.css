@@ -2,7 +2,7 @@
     display: flex;
     gap: 30px;
     align-items: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
 }
 
@@ -12,28 +12,31 @@
 
 .panel-cliente,
 .panel-vehiculo {
-    background: #1b1f27;
-    border: 1px solid #2f3645;
-    box-shadow: 0 0 15px rgba(0,0,0,0.35);
+    background: #f8fafc;
+    border: 1px solid #dbe2ea;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.06);
     overflow: hidden;
+    border-radius: 14px;
 }
 
 .panel-vehiculo {
-    width: 700px;
+    flex: 2;
+    min-width: 650px;
 }
 
 .panel-cliente {
-    width: 420px;
+    flex: 1;
+    min-width: 350px;
 }
 
 .titulo {
-    background: #232936;
+    background: #eef2f7;
     text-align: center;
     padding: 14px;
     font-size: 22px;
     font-weight: bold;
-    color: #ffffff;
-    border-bottom: 1px solid #2f3645;
+    color: #1e293b;
+    border-bottom: 1px solid #dbe2ea;
 }
 
 /* =========================
@@ -48,10 +51,10 @@
 
     .tabla-costos td,
     .tabla-cliente td {
-        border: 1px solid #2f3645;
+        border: 1px solid #e2e8f0;
         padding: 10px 14px;
         font-size: 14px;
-        color: #f1f1f1;
+        color: #1e293b;
     }
 
         .tabla-costos td:first-child {
@@ -64,20 +67,20 @@
 
 .label {
     width: 45%;
-    background: #232936;
+    background: #f1f5f9;
     font-weight: bold;
 }
 
 .gris {
-    background: #232936;
+    background: #f8fafc;
 }
 
 .verde {
-    background: #1f2d2b;
+    background: #ecfdf5;
 }
 
 .beige {
-    background: #2b2623;
+    background: #fef7ed;
 }
 
 /* =========================
@@ -86,9 +89,9 @@
 
 .textbox {
     width: 100%;
-    background: #12161d;
-    border: 1px solid #3a4253;
-    color: white;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
     padding: 8px 10px;
     border-radius: 6px;
     outline: none;
@@ -98,7 +101,7 @@
 
     .textbox:focus {
         border-color: #1576BB;
-        box-shadow: 0 0 5px rgba(25,100,155,0.4);
+        box-shadow: 0 0 5px rgba(21,118,187,0.2);
     }
 
 /* =========================
@@ -117,9 +120,8 @@
 }
 
     .btn-buscar:hover {
-        background: #0094ff;
+        background: #0f5f97;
     }
-
 
 .btn-pdf {
     background: #22c55e;
@@ -132,13 +134,12 @@
     transition: 0.2s;
 }
 
-  
     .btn-pdf:hover {
-        background: #21c44e;
+        background: #16a34a;
     }
 
 .acciones-superiores {
-    width: 700px;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     gap: 12px;
@@ -175,7 +176,7 @@
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(15,23,42,0.45);
     display: none;
     justify-content: center;
     align-items: center;
@@ -187,10 +188,11 @@
     max-width: 1000px;
     max-height: 85vh;
     overflow-y: auto;
-    background: #1b1f27;
-    border: 1px solid #2f3645;
+    background: #f8fafc;
+    border: 1px solid #dbe2ea;
     border-radius: 14px;
     padding: 20px;
+    box-shadow: 0 20px 50px rgba(15,23,42,0.12);
 }
 
 .modal-header {
@@ -201,11 +203,11 @@
 }
 
     .modal-header h2 {
-        color: white;
+        color: #1e293b;
     }
 
 .cerrar-modal {
-    background: #ff5b5b;
+    background: #ef4444;
     color: white;
     border: none;
     width: 35px;
@@ -225,9 +227,9 @@
 
 .accordion-btn {
     width: 100%;
-    background: #232936;
-    color: white;
-    border: none;
+    background: #eef2f7;
+    color: #1e293b;
+    border: 1px solid #dbe2ea;
     padding: 15px;
     text-align: left;
     font-size: 16px;
@@ -248,22 +250,23 @@
 
     .tabla-modal th,
     .tabla-modal td {
-        border: 1px solid #2f3645;
+        border: 1px solid #dbe2ea;
         padding: 12px;
-        color: white;
+        color: #1e293b;
         text-align: center;
     }
 
     .tabla-modal th {
         background: #1576BB;
+        color: white;
     }
 
     .tabla-modal tr {
-        background: #232936;
+        background: #ffffff;
         transition: 0.2s;
         cursor: pointer;
     }
 
         .tabla-modal tr:hover {
-            background: #ff8533;
+            background: #eff6ff;
         }

@@ -92,10 +92,6 @@
                         <button class="btn btn-edit" onclick="abrirModalEditar(@v.IdVehiculo)">
                             Editar
                         </button>
-
-                        <button class="btn btn-delete" onclick="confirmarEliminar(@v.IdVehiculo)">
-                            Eliminar
-                        </button>
                     </td>
                 </tr>
             }
@@ -117,4 +113,6 @@
         </div>
     </div>
 </div>
-<script src="~/js/vehiculos.js"></script>
+@section Scripts {
+    <script src="~/js/vehiculos.js"></script>
+}

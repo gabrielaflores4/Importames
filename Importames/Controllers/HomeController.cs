@@ -20,14 +20,12 @@ namespace Importames.Controllers
         {
         }
 
-        [Autenticado]
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Autenticado]
         [HttpPost]
         public IActionResult Index(string email, string contra)
         {
@@ -49,13 +47,13 @@ namespace Importames.Controllers
                 return View();
             }
 
-          
-            HttpContext.Session.SetInt32("id_usuarios", usuarios.IdUsuario);
+
+            HttpContext.Session.SetInt32("id_usuario", usuarios.IdUsuario);
             HttpContext.Session.SetString("correo", usuarios.Correo);
             HttpContext.Session.SetString("nombre_usuario", usuarios.Nombre);
-            HttpContext.Session.SetString("rol_usuario", usuarios.Rol);
+            HttpContext.Session.SetString("rol", usuarios.Rol);
 
-      
+
             if (usuarios.Rol == "Administrador")
             {
                 return RedirectToAction("Dashboard", "Dashboard");

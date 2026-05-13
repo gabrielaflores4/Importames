@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var rol = Context.Session.GetString("rol");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -79,10 +82,13 @@
                         <span>Clientes</span>
                     </a>
 
-                    <a class="nav-item" asp-area="" asp-controller="Usuarios" asp-action="Index">
-                        <i class="bi bi-person-badge"></i>
-                        <span>Usuarios</span>
-                    </a>
+                    @if (rol == "Administrador")
+                    {
+                        <a class="nav-item" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                            <i class="bi bi-person-badge"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    }
 
                 </div>
 

@@ -1,8 +1,10 @@
 ﻿using Importames.Data;
 using Microsoft.AspNetCore.Mvc;
+using Importames.Servicios;
 
 namespace Importames.Controllers
 {
+    [Autenticado]
     public class DashboardController : Controller
     {
         private readonly AppDbContext _context;

@@ -22,8 +22,44 @@
         sidebar.classList.toggle("closed");
         mainContent.classList.toggle("expanded");
         topbar.classList.toggle("expanded");
-
         const isClosed = sidebar.classList.contains("closed");
         document.cookie = `sidebarClosed=${isClosed};path=/;max-age=31536000`;
     });
+
+    const userMenuBtn = document.getElementById("userMenuBtn");
+    const userDropdown = document.getElementById("userDropdown");
+
+    userMenuBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        userDropdown.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function () {
+        userDropdown.classList.remove("open");
+    });
+
+    document.addEventListener("click", function (e) {
+
+        const link = e.target.closest("#abrirPerfil");
+
+        if (link) {
+
+            e.preventDefault();
+
+            fetch("/Usuarios/Perfil")
+                .then(r => r.text())
+                .then(html => {
+
+                    document.getElementById("modalContainer").innerHTML = html;
+
+                });
+
+        }
+
+        if (e.target.closest("#cerrarPerfil")) {
+            document.getElementById("modalContainer").innerHTML = "";
+        }
+
+    });
+
 });

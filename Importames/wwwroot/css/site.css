@@ -1,3 +1,23 @@
+html {
+    background: #0f172a;
+}
+
+body {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar,
+.topbar,
+.card,
+.table-container,
+.modal-content,
+.settings-content,
+.login-box,
+.panel-cliente,
+.panel-vehiculo {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
 html.sidebar-preload .sidebar {
     width: 70px;
     transition: none !important;
@@ -480,3 +500,102 @@ body {
         left: 0;
     }
 }
+
+
+/*MODO OSCURO*/
+html.dark-mode {
+    background: #0f172a;
+    color: #f9fafb;
+}
+
+    html.dark-mode .sidebar {
+        background: #111827;
+        border-color: #374151;
+    }
+
+    html.dark-mode .sidebar-header span,
+    html.dark-mode .nav-section-title {
+        color: #f9fafb;
+    }
+
+    html.dark-mode .nav-item {
+        color: #d1d5db;
+    }
+
+        html.dark-mode .nav-item:hover {
+            background: #1f2937;
+            color: #ffffff;
+        }
+
+        html.dark-mode .nav-item.active {
+            background: #7f1d1d;
+            color: #ffffff;
+        }
+
+    html.dark-mode .toggle-sidebar-btn {
+        background: #1f2937;
+        color: #f9fafb;
+    }
+
+        html.dark-mode .toggle-sidebar-btn:hover {
+            background: #374151;
+        }
+
+    html.dark-mode .topbar {
+        background: #111827;
+        border-color: #374151;
+    }
+
+    html.dark-mode .topbar-left h2 {
+        color: #f9fafb;
+    }
+
+    html.dark-mode .topbar-btn {
+        background: #1f2937;
+        color: #f9fafb;
+    }
+
+        html.dark-mode .topbar-btn:hover {
+            background: #374151;
+        }
+
+    html.dark-mode .user-dropdown {
+        background: #1f2937;
+        border-color: #374151;
+    }
+
+    html.dark-mode .user-dropdown-name {
+        color: #f9fafb;
+    }
+
+    html.dark-mode .user-dropdown-email {
+        color: #d1d5db;
+    }
+
+    html.dark-mode .user-dropdown-divider {
+        background: #374151;
+    }
+
+    html.dark-mode .user-dropdown-item {
+        color: #f9fafb;
+    }
+
+        html.dark-mode .user-dropdown-item:hover {
+            background: #374151;
+        }
+
+    html.dark-mode .main-content {
+        background: #0f172a;
+    }
+
+    html.dark-mode .input-search,
+    html.dark-mode .select {
+        background: #111827;
+        border-color: #374151;
+        color: #f9fafb;
+    }
+
+        html.dark-mode .input-search:focus,
+        html.dark-mode .select:focus {
+            border-color: #60a5fa;
+        }

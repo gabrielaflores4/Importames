@@ -1,0 +1,224 @@
+﻿.settings-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+
+    .settings-modal.active {
+        display: flex;
+    }
+
+.settings-content {
+    width: 500px;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    animation: modalFade .2s ease;
+    font-family: 'Syne', sans-serif;
+}
+
+.settings-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .settings-header h3 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+.close-settings {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.settings-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.settings-section h4 {
+    margin-bottom: 14px;
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: inherit;
+    background: #f9fafb;
+    transition: .2s;
+    margin-bottom: 10px;
+}
+
+    .settings-item:hover {
+        background: #f3f4f6;
+    }
+
+.settings-item-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+    .settings-item-left i {
+        font-size: 22px;
+        color: #111827;
+    }
+
+    .settings-item-left span {
+        display: block;
+        font-size: 15px;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .settings-item-left small {
+        display: block;
+        margin-top: 2px;
+        font-size: 12px;
+        color: #6b7280;
+    }
+
+.logout-item {
+    color: #dc2626;
+}
+
+    .logout-item i,
+    .logout-item span,
+    .logout-item small {
+        color: #dc2626;
+    }
+
+.switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+}
+
+    .switch input {
+        display: none;
+    }
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #d1d5db;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+    .slider::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 3px;
+        top: 3px;
+        background: white;
+        border-radius: 50%;
+        transition: .3s;
+    }
+
+.switch input:checked + .slider {
+    background: #111827;
+}
+
+    .switch input:checked + .slider::before {
+        transform: translateX(24px);
+    }
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/*MODO OSCURO*/
+html.dark-mode {
+    background: #111827;
+    color: white;
+}
+
+    html.dark-mode .topbar {
+        background: #1f2937;
+        border-color: #374151;
+    }
+
+    html.dark-mode .sidebar {
+        background: #111827;
+    }
+
+    html.dark-mode .nav-item {
+        color: #e5e7eb;
+    }
+
+        html.dark-mode .nav-item:hover {
+            background: #1f2937;
+        }
+
+    html.dark-mode .main-content {
+        background: #0f172a;
+    }
+
+    html.dark-mode .settings-content {
+        background: #1f2937;
+    }
+
+    html.dark-mode .settings-header {
+        border-color: #374151;
+    }
+
+        html.dark-mode .settings-header h3 {
+            color: white;
+        }
+
+    html.dark-mode .settings-item {
+        background: #111827;
+    }
+
+        html.dark-mode .settings-item:hover {
+            background: #374151;
+        }
+
+    html.dark-mode .settings-item-left span {
+        color: white;
+    }
+
+    html.dark-mode .settings-item-left small {
+        color: #d1d5db;
+    }
+
+    html.dark-mode .settings-item-left i {
+        color: white;
+    }

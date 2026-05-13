@@ -189,3 +189,71 @@
     justify-content: center;
     gap: 15px;
 }
+
+
+/*MODO OSCURO*/
+body.dark-mode .modal,
+body.dark-mode .modal-confirm {
+    background: rgba(0,0,0,0.55);
+}
+
+body.dark-mode .modal-content,
+body.dark-mode .modal-confirm-content {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+body.dark-mode .form-title,
+body.dark-mode .modal-confirm-mensaje,
+body.dark-mode .historial-estado {
+    color: #f9fafb;
+}
+
+body.dark-mode .form-group label,
+body.dark-mode .historial-fecha {
+    color: #9ca3af;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+    background: #111827;
+    border-color: #374151;
+    color: #f9fafb;
+}
+
+    body.dark-mode .form-group input:focus,
+    body.dark-mode .form-group select:focus {
+        border-color: #60a5fa;
+    }
+
+body.dark-mode .historial-lista {
+    background: #111827;
+    border-color: #374151;
+}
+
+body.dark-mode .historial-item {
+    border-color: #374151;
+}
+
+body.dark-mode .mensaje-form {
+    background: rgba(127, 29, 29, 0.35);
+    border-color: #991b1b;
+    color: #fecaca;
+}
+
+body.dark-mode .alerta-exito {
+    background: rgba(20, 83, 45, 0.35);
+    border-color: #166534;
+    color: #dcfce7;
+}
+
+body.dark-mode .alerta-error {
+    background: rgba(127, 29, 29, 0.35);
+    border-color: #991b1b;
+    color: #fecaca;
+}
+
+body.dark-mode .error-msg {
+    color: #fca5a5;
+}

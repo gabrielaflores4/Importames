@@ -16,6 +16,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"]</title>
+    <script>
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
+    <link rel="icon" type="image/x-icon" href="~/img/logoImportames.ico">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="~/css/site.css" rel="stylesheet">
     <link href="~/css/buttons.css" rel="stylesheet">
@@ -60,4 +66,7 @@
         </div>
     </div>
 </body>
+
+<script src="~/js/settings.js"></script>
+
 </html>

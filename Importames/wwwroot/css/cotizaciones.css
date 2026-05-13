@@ -270,3 +270,72 @@
         .tabla-modal tr:hover {
             background: #eff6ff;
         }
+
+/*MODO OSCURO*/
+html.dark-mode .panel-cliente,
+html.dark-mode .panel-vehiculo,
+html.dark-mode .modal-contenido {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+html.dark-mode .titulo {
+    background: #111827;
+    color: #f9fafb;
+    border-color: #374151;
+}
+
+html.dark-mode .tabla-costos td,
+html.dark-mode .tabla-cliente td,
+html.dark-mode .tabla-modal td,
+html.dark-mode .tabla-modal th {
+    border-color: #374151;
+    color: #f9fafb;
+}
+
+html.dark-mode .label {
+    background: #111827;
+    color: #f9fafb;
+}
+
+html.dark-mode .gris {
+    background: #1f2937;
+}
+
+html.dark-mode .verde {
+    background: rgba(34, 197, 94, 0.12);
+}
+
+html.dark-mode .beige {
+    background: rgba(245, 158, 11, 0.12);
+}
+
+html.dark-mode .textbox {
+    background: #111827;
+    border-color: #374151;
+    color: #f9fafb;
+}
+
+    html.dark-mode .textbox:focus {
+        border-color: #60a5fa;
+        box-shadow: 0 0 5px rgba(96,165,250,0.25);
+    }
+
+html.dark-mode .modal-header h2 {
+    color: #f9fafb;
+}
+
+html.dark-mode .accordion-btn {
+    background: #111827;
+    border-color: #374151;
+    color: #f9fafb;
+}
+
+html.dark-mode .tabla-modal tr {
+    background: #1f2937;
+}
+
+    html.dark-mode .tabla-modal tr:hover {
+        background: #111827;
+    }

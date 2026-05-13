@@ -118,9 +118,6 @@
                     <button class="topbar-btn" id="openSettings">
                         <i class="bi bi-gear"></i>
                     </button>
-                    <button class="topbar-btn">
-                        <i class="bi bi-bell"></i>
-                    </button>
                     <div class="topbar-user" id="userMenuBtn">
                         @(Context.Session.GetString("nombre_usuario")?[0].ToString().ToUpper() ?? "U")
                     </div>
@@ -160,6 +157,7 @@
     <div id="modalContainer"></div>
 
     <partial name="SettingsModal" />
+    <partial name="FaqModal" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/sidebar.js"></script>

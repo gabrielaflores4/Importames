@@ -5,21 +5,27 @@
     const settingsModal = document.getElementById("settingsModal");
 
     if (openSettings) {
+
         openSettings.addEventListener("click", function () {
             settingsModal.classList.add("active");
         });
+
     }
 
     if (closeSettings) {
+
         closeSettings.addEventListener("click", function () {
             settingsModal.classList.remove("active");
         });
+
     }
 
     window.addEventListener("click", function (e) {
+
         if (e.target === settingsModal) {
             settingsModal.classList.remove("active");
         }
+
     });
 
     const darkModeToggle = document.getElementById("darkModeToggle");
@@ -31,6 +37,7 @@
         if (darkModeToggle) {
             darkModeToggle.checked = true;
         }
+
     }
 
     if (darkModeToggle) {
@@ -52,5 +59,56 @@
         });
 
     }
+
+    const faqModal = document.getElementById("faqModal");
+    const openFaq = document.getElementById("openFaq");
+    const closeFaq = document.getElementById("closeFaq");
+
+    if (openFaq) {
+
+        openFaq.addEventListener("click", function () {
+
+            settingsModal.classList.remove("active");
+            faqModal.classList.add("active");
+
+        });
+
+    }
+
+    if (closeFaq) {
+
+        closeFaq.addEventListener("click", function () {
+
+            faqModal.classList.remove("active");
+
+        });
+
+    }
+
+    if (faqModal) {
+
+        faqModal.addEventListener("click", function (e) {
+
+            if (e.target === faqModal) {
+                faqModal.classList.remove("active");
+            }
+
+        });
+
+    }
+
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(function (question) {
+
+        question.addEventListener("click", function () {
+
+            const item = question.parentElement;
+
+            item.classList.toggle("active");
+
+        });
+
+    });
 
 });

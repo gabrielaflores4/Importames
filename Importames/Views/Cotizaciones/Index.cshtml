@@ -327,50 +327,6 @@
 
 </div>
 
-<form id="formPDF"
-      method="post"
-      action="@Url.Action("GenerarPDF", "Cotizaciones")">
-
-    <input type="hidden" name="nombreCliente" id="pdf_nombreCliente">
-    <input type="hidden" name="telefonoCliente" id="pdf_telefonoCliente">
-    <input type="hidden" name="correoCliente" id="pdf_correoCliente">
-
-    <input type="hidden" name="marcaVehiculo" id="pdf_marcaVehiculo">
-    <input type="hidden" name="fechaSubasta" id="pdf_fechaSubasta">
-    <input type="hidden" name="subasta" id="pdf_subasta">
-    <input type="hidden" name="numeroStock" id="pdf_numeroStock">
-    <input type="hidden" name="lugarEstado" id="pdf_lugarEstado">
-    <input type="hidden" name="aduanaDestino" id="pdf_aduanaDestino">
-    <input type="hidden" name="naviera" id="pdf_naviera">
-
-    <input type="hidden" name="apuestaVehiculo" id="pdf_apuestaVehiculo">
-    <input type="hidden" name="precioFees" id="pdf_precioFees">
-    <input type="hidden" name="comision" id="pdf_comision">
-
-    <input type="hidden" name="grua" id="pdf_grua">
-    <input type="hidden" name="bl" id="pdf_bl">
-    <input type="hidden" name="flete" id="pdf_flete">
-    <input type="hidden" name="comisionFlete" id="pdf_comisionFlete">
-
-    <input type="hidden" name="impuesto" id="pdf_impuesto">
-    <input type="hidden" name="tramiteAduanal" id="pdf_tramiteAduanal">
-    <input type="hidden" name="gruaAduana" id="pdf_gruaAduana">
-    <input type="hidden" name="transferencia" id="pdf_transferencia">
-    <input type="hidden" name="storage" id="pdf_storage">
-    <input type="hidden" name="tituloFedex" id="pdf_tituloFedex">
-    <input type="hidden" name="venta" id="pdf_venta">
-    <input type="hidden" name="pagoCuenta" id="pdf_pagoCuenta">
-
-    <input type="hidden" name="reparacionPintor" id="pdf_reparacionPintor">
-    <input type="hidden" name="repuestos" id="pdf_repuestos">
-    <input type="hidden" name="tramitePlacas" id="pdf_tramitePlacas">
-    <input type="hidden" name="autorizacion" id="pdf_autorizacion">
-    <input type="hidden" name="emisionGases" id="pdf_emisionGases">
-    <input type="hidden" name="experticie" id="pdf_experticie">
-    <input type="hidden" name="experticieSistema" id="pdf_experticieSistema">
-
-</form>
-
 @section Scripts {
     <script src="~/js/cotizaciones.js"></script>
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Importames.Controllers
 {
-    [Autenticado("Administrador")]
+    [Autenticado]
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;

@@ -405,14 +405,22 @@ body {
 }
 
 .user-dropdown-item {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 12px 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
     color: #374151;
-    text-decoration: none;
     font-size: 0.9rem;
     transition: background 0.15s;
+    cursor: pointer;
+    text-align: left;
 }
 
     .user-dropdown-item:hover {

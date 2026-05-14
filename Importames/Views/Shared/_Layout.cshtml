@@ -138,15 +138,10 @@
                         </div>
                         <div class="user-dropdown-divider"></div>
 
-                        <a class="user-dropdown-item"
-                           id="abrirPerfil"
-                           asp-area=""
-                           asp-controller="Usuarios"
-                           asp-action="Perfil">
-
+                        <button class="user-dropdown-item" id="abrirPerfil" type="button">
                             <i class="bi bi-person"></i>
                             <span>Ver perfil</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -162,6 +157,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/sidebar.js"></script>
     <script src="~/js/settings.js"></script>
+    <script src="~/js/perfil.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

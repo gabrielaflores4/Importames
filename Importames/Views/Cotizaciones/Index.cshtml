@@ -13,7 +13,7 @@
         <div class="panel-vehiculo">
 
             <div class="titulo">
-                Datos vehiculo
+                DATOS DEL VEHÍCULO
             </div>
 
             <table class="tabla-costos">
@@ -213,10 +213,33 @@
     <div class="panel-cliente">
 
         <div class="titulo">
-            Datos del cliente
+            DATOS DEL CLIENTE / SUBASTA
         </div>
 
         <table class="tabla-cliente">
+
+            <tr>
+                <td class="label">DUI:</td>
+                <td>
+
+                    <div class="dui-container">
+
+                        <input type="text"
+                               class="textbox"
+                               id="duiCliente">
+
+                        <button type="button"
+                                class="btn-buscar-cliente"
+                                id="buscarCliente">
+
+                            Buscar
+
+                        </button>
+
+                    </div>
+
+                </td>
+            </tr>
 
             <tr>
                 <td class="label">NOMBRE CLIENTE:</td>
@@ -257,7 +280,7 @@
             <tr>
                 <td class="label">FECHA DE SUBASTA:</td>
                 <td>
-                    <input type="text"
+                    <input type="date"
                            class="textbox"
                            id="fechaSubasta">
                 </td>
@@ -280,7 +303,8 @@
             <tr>
                 <td class="label">NUMERO DE STOCK:</td>
                 <td>
-                    <input type="text"
+                    <input type="number"
+                           min="0"
                            class="textbox"
                            id="numeroStock">
                 </td>

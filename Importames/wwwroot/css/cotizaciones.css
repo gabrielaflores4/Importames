@@ -148,6 +148,38 @@
 }
 
 /* =========================
+        BUSCAR CLIENTE
+==========================*/
+
+.dui-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+    .dui-container .textbox {
+        flex: 1;
+    }
+
+.btn-buscar-cliente {
+    height: 40px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 8px;
+    background: #1576BB;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+    .btn-buscar-cliente:hover {
+        background: #0f5f97;
+    }
+
+/* =========================
            RESPONSIVE
 ==========================*/
 
@@ -167,6 +199,16 @@
         justify-content: center;
         flex-wrap: wrap;
     }
+
+    .dui-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-buscar-cliente {
+        width: 100%;
+    }
+
 }
 
 /* =========================

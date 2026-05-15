@@ -138,5 +138,63 @@ namespace Importames.Controllers
                 return Json(new { exito = false, mensaje = "Ocurrió un error al intentar eliminar el cliente." });
             }
         }
+
+        [HttpGet]
+        public IActionResult BuscarPorDui(string dui)
+        {
+            var cliente = _context.Clientes
+                .FirstOrDefault(c => c.Dui == dui);
+
+            if (cliente == null)
+            {
+                return Json(new
+                {
+                    encontrado = false
+                });
+            }
+
+            return Json(new
+            {
+                encontrado = true,
+                idCliente = cliente.IdCliente,
+                nombre = cliente.Nombre,
+                telefono = cliente.Telefono,
+                correo = cliente.Correo
+            });
+        }
+
+        [HttpPost]
+        public JsonResult CrearRapido([FromBody] ClienteModel cliente)
+        {
+            try
+            {
+                if (_context.Clientes.Any(c => c.Dui == cliente.Dui))
+                {
+                    return Json(new
+                    {
+                        exito = false,
+                        mensaje = "El DUI ya existe"
+                    });
+                }
+
+                _context.Clientes.Add(cliente);
+                _context.SaveChanges();
+
+                return Json(new
+                {
+                    exito = true
+                });
+            }
+            catch
+            {
+                return Json(new
+                {
+                    exito = false,
+                    mensaje = "Error al guardar"
+                });
+            }
+        }
+
+
     }
 }

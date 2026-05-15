@@ -126,4 +126,22 @@ window.addEventListener('load', () => {
             setTimeout(() => div.remove(), 500);
         }, 4000);
     }
+
+    document.addEventListener("input", function (e) {
+
+        if (e.target.name === "Dui") {
+
+            let valor = e.target.value.replace(/\D/g, "");
+
+            if (valor.length > 9) {
+                valor = valor.substring(0, 9);
+            }
+
+            if (valor.length > 8) {
+                valor = valor.substring(0, 8) + "-" + valor.substring(8);
+            }
+
+            e.target.value = valor;
+        }
+    });
 });

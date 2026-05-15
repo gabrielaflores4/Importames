@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Importames.Models.UsuarioModel>
 @{
     ViewData["Title"] = "Usuarios";
-    var rol = Context.Session.GetString("rol_usuario");
+    var rol = Context.Session.GetString("rol"); 
 }
 
 <div class="table-header">

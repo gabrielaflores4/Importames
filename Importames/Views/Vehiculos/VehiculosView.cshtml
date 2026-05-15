@@ -25,9 +25,20 @@
         </div>
     </div>
 
-    <button class="btn btn-add" onclick="abrirModal()">
-        <i class="bi bi-plus"></i> Registrar Vehículo
-    </button>
+    <div style="display:flex; gap:10px;">
+
+        <button class="btn btn-add" onclick="abrirModal()">
+            <i class="bi bi-plus"></i> Registrar Vehículo
+        </button>
+
+        <a asp-action="GenerarReporte"
+           asp-route-estadoId="@Context.Request.Query["estadoId"]"
+           class="btn btn-edit">
+            <i class="bi bi-file-earmark-pdf"></i>
+            Generar Reporte
+        </a>
+
+    </div>
 
 </div>
 

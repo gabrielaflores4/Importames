@@ -1,40 +1,67 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", () => {
 
-    const abrir = document.getElementById("abrirPerfil");
+    document.body.addEventListener("click", async function (e) {
 
-    if (abrir) {
+        const btn = e.target.closest("#abrirPerfil");
 
-        abrir.addEventListener("click", function (e) {
+        if (!btn) return;
 
-            e.stopPropagation();
+        e.preventDefault();
+        e.stopImmediatePropagation();
 
-            fetch('/Usuarios/Perfil')
-                .then(res => res.text())
-                .then(html => {
+        try {
 
-                    document.getElementById("modalContainer").innerHTML = html;
+            const response = await fetch("/Usuarios/Perfil");
 
-                    const modal = document.getElementById("perfilModal");
-                    const cerrar = document.getElementById("cerrarPerfil");
+            const html = await response.text();
 
-                    modal.classList.add("active");
+            document.getElementById("modalContainer").innerHTML = html;
 
-                    cerrar.onclick = function () {
+            const modal = document.getElementById("perfilModal");
+
+            if (modal) {
+
+                modal.classList.add("active");
+
+                const cerrar = document.getElementById("cerrarPerfil");
+
+                cerrar?.addEventListener("click", () => {
+
+                    modal.classList.remove("active");
+
+                    setTimeout(() => {
+
                         document.getElementById("modalContainer").innerHTML = "";
-                    };
 
-                    modal.onclick = function (e) {
-
-                        if (e.target === modal) {
-                            document.getElementById("modalContainer").innerHTML = "";
-                        }
-
-                    };
+                    }, 200);
 
                 });
 
-        });
+                modal.addEventListener("click", function (ev) {
 
-    }
+                    if (ev.target === modal) {
+
+                        modal.classList.remove("active");
+
+                        setTimeout(() => {
+
+                            document.getElementById("modalContainer").innerHTML = "";
+
+                        }, 200);
+
+                    }
+
+                });
+
+            }
+
+        }
+        catch (err) {
+
+            console.log(err);
+
+        }
+
+    });
 
 });

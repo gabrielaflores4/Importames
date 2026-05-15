@@ -221,7 +221,7 @@ body {
         width: 40px;
         height: 40px;
     }
-    
+
     .sidebar.closed .toggle-sidebar-btn {
         position: static;
         transform: none;
@@ -354,7 +354,9 @@ body {
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
-    width: 230px;
+    min-width: 260px;
+    max-width: 420px;
+    width: max-content;
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 14px;
@@ -369,7 +371,7 @@ body {
 
 .user-dropdown-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     padding: 14px 16px;
 }
@@ -387,15 +389,26 @@ body {
     flex-shrink: 0;
 }
 
+.user-dropdown-header > div:last-child {
+    min-width: 0;
+    flex: 1;
+}
+
 .user-dropdown-name {
     font-weight: 600;
     font-size: 0.9rem;
     color: #111827;
+    white-space: nowrap;
 }
 
 .user-dropdown-email {
     font-size: 0.78rem;
     color: #6b7280;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.4;
+    max-width: 320px;
 }
 
 .user-dropdown-divider {
@@ -507,8 +520,16 @@ body {
     .topbar.expanded {
         left: 0;
     }
-}
 
+    .user-dropdown {
+        min-width: 220px;
+        max-width: 95vw;
+    }
+
+    .user-dropdown-email {
+        max-width: 100%;
+    }
+}
 
 /*MODO OSCURO*/
 html.dark-mode {

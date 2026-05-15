@@ -155,10 +155,15 @@ namespace Importames.Controllers
 
         public IActionResult Perfil()
         {
-            var username = HttpContext.Session.GetString("nombre_usuario");
+            var idUsuario = HttpContext.Session.GetInt32("id_usuario");
+
+            if (idUsuario == null)
+            {
+                return Unauthorized();
+            }
 
             var usuario = _context.Usuarios
-                .FirstOrDefault(u => u.Username == username);
+                .FirstOrDefault(u => u.IdUsuario == idUsuario);
 
             if (usuario == null)
             {
@@ -168,6 +173,7 @@ namespace Importames.Controllers
             return PartialView("PerfilModal", usuario);
         }
 
-
     }
+
+
 }

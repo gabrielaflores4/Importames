@@ -40,10 +40,13 @@
 
         <div class="card yellow">
             <div class="card-info">
+
                 <h3>Marca más comprada</h3>
-                <p>-</p>
-                <span>0 unidades este mes</span>
+
+                <p>@ViewBag.MarcaMasComprada</p>
+
             </div>
+
             <div class="card-icon">
                 <i class="bi bi-star"></i>
             </div>
@@ -69,35 +72,49 @@
             </div>
         </div>
 
-        <a href="https://www.iaai.com/Dashboard/Default"
-           target="_blank"
-           class="dashboard-btn red-btn">
+    </div>
 
-            <div class="dashboard-btn-content">
-                <img src="~/img/IAA.png" alt="Entregas">
-            </div>
 
-        </a>
+    <!-- BOTONES SEPARADOS -->
+    <div class="dashboard-buttons-section">
 
-        <a href="https://www.copart.com/es/login"
-           target="_blank"
-           class="dashboard-btn blue-btn">
+        <h3 class="dashboard-section-title">
+            Accesos rápidos
+        </h3>
 
-            <div class="dashboard-btn-content">
-                <img src="~/img/Copart.png" alt="Reportes">
-            </div>
+        <div class="dashboard-buttons">
 
-        </a>
+            <a href="https://www.iaai.com/Dashboard/Default"
+               target="_blank"
+               class="dashboard-btn red-btn">
 
-        <a href="https://go.microsoft.com/fwlink/p/?LinkID=2125442&deeplink=mail%2F"
-           target="_blank"
-           class="dashboard-btn cyan-btn">
+                <div class="dashboard-btn-content">
+                    <img src="~/img/IAA.png" alt="Entregas">
+                </div>
 
-            <div class="dashboard-btn-content">
-                <img src="~/img/Outlook.png" alt="Soporte">
-            </div>
+            </a>
 
-        </a>
+            <a href="https://www.copart.com/es/login"
+               target="_blank"
+               class="dashboard-btn blue-btn">
+
+                <div class="dashboard-btn-content">
+                    <img src="~/img/Copart.png" alt="Reportes">
+                </div>
+
+            </a>
+
+            <a href="https://go.microsoft.com/fwlink/p/?LinkID=2125442&deeplink=mail%2F"
+               target="_blank"
+               class="dashboard-btn cyan-btn">
+
+                <div class="dashboard-btn-content">
+                    <img src="~/img/Outlook.png" alt="Soporte">
+                </div>
+
+            </a>
+
+        </div>
 
     </div>
 

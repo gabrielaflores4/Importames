@@ -35,6 +35,28 @@ namespace Importames.Controllers
             ViewBag.TotalInventario = _context.Vehiculos
                 .Sum(v => v.Costo);
 
+            // MARCA MÁS REPETIDA
+            var marcaMasComprada = _context.Vehiculos
+                .GroupBy(v => v.Marca)
+                .Select(g => new
+                {
+                    Marca = g.Key,
+                    Cantidad = g.Count()
+                })
+                .OrderByDescending(x => x.Cantidad)
+                .FirstOrDefault();
+
+            if (marcaMasComprada != null)
+            {
+                ViewBag.MarcaMasComprada = marcaMasComprada.Marca;
+                ViewBag.CantidadMarca = marcaMasComprada.Cantidad;
+            }
+            else
+            {
+                ViewBag.MarcaMasComprada = "-";
+                ViewBag.CantidadMarca = 0;
+            }
+
             return View();
         }
     }

@@ -1,7 +1,7 @@
 ﻿.dashboard-btn {
     border: none;
     border-radius: 24px;
-    min-height: 180px;
+    min-height: 160px;
     cursor: pointer;
     transition: 0.25s ease;
     overflow: hidden;
@@ -78,14 +78,6 @@
         object-fit: contain;
     }
 
-    .blue-btn span {
-        color: white;
-    }
-
-    .blue-btn:hover {
-        box-shadow: 0 18px 38px rgba(37, 99, 235, 0.40);
-    }
-
 .cyan-btn {
     background: linear-gradient(135deg, #06b6d4, #0891b2);
     box-shadow: 0 12px 30px rgba(6, 182, 212, 0.30);
@@ -103,13 +95,19 @@
 @media (max-width: 768px) {
 
     .dashboard-btn {
-        min-height: 160px;
+        min-height: 140px;
+        max-height: 140px;
         padding: 20px;
     }
 
     .dashboard-btn-content img {
         width: 72px;
         height: 72px;
+    }
+
+    .blue-btn img {
+        width: 95px;
+        height: 95px;
     }
 
     .dashboard-btn-content span {
@@ -139,6 +137,27 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
+
+
+/* NUEVA SECCIÓN BOTONES */
+
+.dashboard-buttons-section {
+    margin-top: 35px;
+}
+
+.dashboard-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 18px;
+}
+
+.dashboard-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
 
 .card {
     background: #ffffff;
@@ -253,4 +272,8 @@ html.dark-mode .card.purple .card-icon {
 
 html.dark-mode .card.yellow .card-icon {
     background: rgba(234, 179, 8, 0.18);
+}
+
+html.dark-mode .dashboard-section-title {
+    color: #f9fafb;
 }

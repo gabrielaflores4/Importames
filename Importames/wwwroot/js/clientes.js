@@ -126,4 +126,51 @@ window.addEventListener('load', () => {
             setTimeout(() => div.remove(), 500);
         }, 4000);
     }
+
+    document.addEventListener("input", function (e) {
+
+        if (e.target.name === "Dui") {
+
+            let valor = e.target.value.replace(/\D/g, "");
+
+            if (valor.length > 9) {
+                valor = valor.substring(0, 9);
+            }
+
+            if (valor.length > 8) {
+                valor = valor.substring(0, 8) + "-" + valor.substring(8);
+            }
+
+            e.target.value = valor;
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const input = document.querySelector(".input-search");
+
+    input.addEventListener("keyup", function () {
+
+        const filtro = input.value.toLowerCase();
+        const filas = document.querySelectorAll(".table tbody tr");
+
+        filas.forEach(fila => {
+
+            const nombre = fila.children[1].textContent.toLowerCase();
+            const correo = fila.children[2].textContent.toLowerCase();
+            const telefono = fila.children[3].textContent.toLowerCase();
+
+            if (
+                nombre.includes(filtro) ||
+                correo.includes(filtro) ||
+                telefono.includes(filtro)
+            ) {
+                fila.style.display = "";
+            } else {
+                fila.style.display = "none";
+            }
+        });
+    });
+
 });

@@ -25,9 +25,20 @@
         </div>
     </div>
 
-    <button class="btn btn-add" onclick="abrirModal()">
-        <i class="bi bi-plus"></i> Registrar Vehículo
-    </button>
+    <div style="display:flex; gap:10px;">
+
+        <button class="btn btn-add" onclick="abrirModal()">
+            <i class="bi bi-plus"></i> Registrar Vehículo
+        </button>
+
+        <a asp-action="GenerarReporte"
+           asp-route-estadoId="@Context.Request.Query["estadoId"]"
+           class="btn btn-edit">
+            <i class="bi bi-file-earmark-pdf"></i>
+            Generar Reporte
+        </a>
+
+    </div>
 
 </div>
 
@@ -48,7 +59,7 @@
         <tbody>
             @foreach (var v in Model)
             {
-                <tr onclick="abrirModalDetalles(@v.IdVehiculo)" style="cursor: pointer;">
+                <tr>
                     <td>@v.Vin</td>
                     <td>@v.Marca @v.Modelo</td>
                     <td>@($"{v.Cliente.Nombre} {v.Cliente.Apellido}")</td>
@@ -84,12 +95,13 @@
                     </td>
                     <td>@v.Anio</td>
                     <td>$@v.Costo</td>
-                    <td class="acciones" onclick="event.stopPropagation()">
+                    <td class="acciones">
+                        <button class="btn btn-details" onclick="abrirModalDetalles(@v.IdVehiculo)">
+                            Detalles
+                        </button>
+
                         <button class="btn btn-edit" onclick="abrirModalEditar(@v.IdVehiculo)">
                             Editar
-                        </button>
-                        <button class="btn btn-delete">
-                            Eliminar
                         </button>
                     </td>
                 </tr>
@@ -112,4 +124,6 @@
         </div>
     </div>
 </div>
-<script src="~/js/vehiculos.js"></script>
+@section Scripts {
+    <script src="~/js/vehiculos.js"></script>
+}

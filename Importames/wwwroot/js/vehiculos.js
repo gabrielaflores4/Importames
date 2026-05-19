@@ -116,6 +116,30 @@ function actualizarEstado(idVehiculo) {
     });
 }
 
+function confirmarEliminar(id) {
+    confirmar('¿Está seguro que desea eliminar este vehículo?', () => {
+        const datos = new FormData();
+        datos.append('id', id);
+
+        fetch('/Vehiculos/Delete', {
+            method: 'POST',
+            body: datos
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.exito) {
+                    sessionStorage.setItem('mensaje-exito', data.mensaje);
+                    location.reload();
+                } else {
+                    alert(data.mensaje);
+                }
+            })
+            .catch(() => {
+                alert('Ocurrió un error al eliminar.');
+            });
+    });
+}
+
 window.addEventListener('load', () => {
     const mensaje = sessionStorage.getItem('mensaje-exito');
     if (mensaje) {

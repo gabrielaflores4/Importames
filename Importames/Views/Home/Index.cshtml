@@ -1,8 +1,72 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿﻿@{
+    ViewData["Title"] = "Iniciar Sesión";
+    Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (ViewData["Error"] != null)
+{
+    <div class="alert alert-danger text-center">
+        @ViewData["Error"]
+    </div>
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <script>
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
+    <link rel="icon" type="image/x-icon" href="~/img/logoImportames.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet">
+    <link href="~/css/buttons.css" rel="stylesheet">
+    <link href="~/css/login.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+
+            <div class="login-logo">
+                <img src="~/img/LogoFinal.PNG" style="transform: scale(2);">
+            </div>
+
+            <div class="login-title">Iniciar Sesión</div>
+
+            @if (ViewData["Error"] != null)
+            {
+                <div class="mensaje-form" style="display:block;">
+                    @ViewData["Error"]
+                </div>
+            }
+
+            <form action="@Url.Action("Index", "Home")" method="POST">
+
+                <div class="login-form-group">
+                    <label>USUARIO</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="login-form-group">
+                    <label>CONTRASEÑA</label>
+                    <input type="password" name="contra" required>
+                </div>
+
+                <div class="login-actions">
+                    <button type="submit" class="btn btn-add">Entrar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+<script src="~/js/settings.js"></script>
+
+</html>

@@ -1,0 +1,47 @@
+﻿@model Importames.Models.UsuarioModel
+@{
+    Layout = null;
+}
+
+<div class="form-grid">
+    <h2 class="form-title">Detalles del Usuario</h2>
+
+    <div class="form-group">
+        <label>CÓDIGO</label>
+        <input type="text" value="@Model.IdUsuario" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group">
+        <label>USERNAME</label>
+        <input type="text" value="@Model.Username" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group full">
+        <label>NOMBRE COMPLETO</label>
+        <input type="text" value="@Model.Nombre @Model.Apellido" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group">
+        <label>ROL</label>
+        <input type="text" value="@Model.Rol" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group">
+        <label>TELÉFONO</label>
+        <input type="text" value="@Model.Telefono" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group full">
+        <label>CORREO ELECTRÓNICO</label>
+        <input type="email" value="@Model.Correo" readonly class="input-readonly" />
+    </div>
+
+    <div class="form-group">
+        <label>CONTRASEÑA</label>
+        <input type="text" value="@Model.Password" readonly class="input-readonly" />
+    </div>
+
+    <div class="modal-actions full">
+        <button type="button" class="btn btn-cancel" onclick="cerrarModal()">Cerrar</button>
+    </div>
+</div>

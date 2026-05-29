@@ -1,0 +1,41 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.8'
+
+services:
+  # 1. Contenedor de la Base de Datos
+  db:
+    image: mariadb:latest
+    container_name: importames_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234 # Cambia esto por una contraseña segura
+      MYSQL_DATABASE: importames
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./ImportamesSQL.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+  # 2. Contenedor de Importames en Modo Debug
+  importames:
+    image: importames
+    container_name: importames_app
+    build:
+      context: .
+      dockerfile: Importames/Dockerfile
+      args:
+        - configuration=Debug
+    depends_on:
+      - db
+    ports:
+      - "5216:5216"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=importames;Uid=root;Pwd=1234;
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
+
+volumes:
+  db_data:

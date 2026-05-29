@@ -98,17 +98,6 @@ function generarPDF() {
             campo.value = "0";
             valor = "0";
         }
-
-        if (valor === "") {
-
-            let nombreCampo = campo.id || campo.name || "sin nombre";
-
-            alert(`El campo "${nombreCampo}" está vacío. Por favor complétalo.`);
-
-            campo.focus();
-
-            return;
-        }
     }
 
     let d = {};

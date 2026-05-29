@@ -1,12 +1,14 @@
-﻿using System.Text;
+using System.Text;
 using Importames.Data;
 using Importames.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SelectPdf;
+using Importames.Servicios;
 
 namespace Importames.Controllers
 {
+    [Autenticado]
     public class VehiculosController : Controller
     {
         private readonly AppDbContext _context;

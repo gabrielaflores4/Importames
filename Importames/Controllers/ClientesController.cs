@@ -1,10 +1,12 @@
-﻿using Importames.Data;
+using Importames.Data;
 using Importames.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Importames.Servicios;
 
 namespace Importames.Controllers
 {
+    [Autenticado]
     public class ClientesController : Controller
     {
         private readonly AppDbContext _context;

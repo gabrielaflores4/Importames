@@ -1,10 +1,12 @@
-﻿using System.Globalization;
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 using SelectPdf;
 using System.Text.Json;
+using Importames.Servicios;
 
 namespace Importames.Controllers
 {
+    [Autenticado]
     public class CotizacionesController : Controller
     {
         public IActionResult Index()

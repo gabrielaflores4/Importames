@@ -1,11 +1,11 @@
-﻿using Importames.Data;
+using Importames.Data;
 using Importames.Models;
 using Importames.Servicios;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Importames.Controllers
 {
-    [Autenticado]
+    [Autenticado("Administrador")]
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;

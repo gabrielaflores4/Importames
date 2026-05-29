@@ -175,8 +175,8 @@ function generarPDF() {
             .gris { background: #f2f2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             
             @media print {
-                @page { margin: 1cm; }
-                body { padding: 0; }
+                @page { margin: 0; } /* Elimina encabezados y pies de página (IP, Fecha) */
+                body { padding: 1.5cm; } /* Añade el margen al contenido para compensar */
                 .btn-imprimir { display: none; }
             }
         </style>

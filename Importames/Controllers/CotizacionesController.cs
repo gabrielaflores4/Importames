@@ -496,7 +496,7 @@ Por favor anexar hojas verdes y derecho de deposito. Gracias!
         [HttpPost]
         public JsonResult ValidarCampos(List<string> campos)
         {
-            foreach (var campo in campos)
+            /*foreach (var campo in campos)
             {
                 if (campo == null)
                 {
@@ -515,7 +515,7 @@ Por favor anexar hojas verdes y derecho de deposito. Gracias!
                         message = "Todos los campos deben estar llenos"
                     });
                 }
-            }
+            }*/
 
             return Json(new
             {

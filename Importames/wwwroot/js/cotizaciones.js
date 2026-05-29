@@ -176,16 +176,27 @@ function generarPDF() {
             
             @media print {
                 @page { margin: 0; } /* Elimina encabezados y pies de página (IP, Fecha) */
-                body { padding: 1.5cm; } /* Añade el margen al contenido para compensar */
+                html, body { 
+                    margin: 0; 
+                    padding: 0; 
+                    width: 100%; 
+                    height: 100%; 
+                    overflow: hidden; /* Esto es LA MAGIA para evitar la segunda página en blanco */
+                }
+                .contenedor {
+                    padding: 1.5cm; /* Añade el margen al contenido para compensar */
+                    box-sizing: border-box;
+                }
                 .btn-imprimir { display: none; }
             }
         </style>
     </head>
     <body>
-        <div class="btn-imprimir" style="text-align: right; margin-bottom: 10px;">
-            <button onclick="window.print()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px;">🖨️ Guardar PDF / Imprimir</button>
-        </div>
-        <div class='titulo'>COTIZACION</div>
+        <div class="contenedor">
+            <div class="btn-imprimir" style="text-align: right; margin-bottom: 10px;">
+                <button onclick="window.print()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px;">🖨️ Guardar PDF / Imprimir</button>
+            </div>
+            <div class='titulo'>COTIZACION</div>
         <table>
             <tr>
                 <td style='width:65%; vertical-align:top;'>
@@ -242,6 +253,7 @@ function generarPDF() {
             Banco Agricola Cuenta # 003760364703<br>
             A nombre de: Carlos Roberto Amaya<br>
             Por favor anexar hojas verdes y derecho de deposito. Gracias!
+        </div>
         </div>
         <script>
             // Disparar la impresión automáticamente al cargar la ventana

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Importames.Servicios
@@ -22,8 +22,8 @@ namespace Importames.Servicios
             string controller = context.RouteData.Values["controller"]?.ToString();
             string action = context.RouteData.Values["action"]?.ToString();
 
-            if (!controller.Equals("Home", StringComparison.OrdinalIgnoreCase) &&
-            !action.Equals("Index", StringComparison.OrdinalIgnoreCase))
+            if (!(controller.Equals("Home", StringComparison.OrdinalIgnoreCase) && 
+                  action.Equals("Index", StringComparison.OrdinalIgnoreCase)))
             {
                 if (!idUsuario.HasValue)
                 {

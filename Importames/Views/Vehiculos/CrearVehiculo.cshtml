@@ -1,4 +1,4 @@
-﻿@model Importames.Models.VehiculoModel
+@model Importames.Models.VehiculoModel
 @{
     Layout = null;
 }
@@ -56,11 +56,11 @@
     <div class="form-group full">
         <label>ESTADO INICIAL</label>
         @{
-            var primerEstado = ((IEnumerable<Importames.Models.EstadosModel>)ViewBag.Estados).First();
+            var primerEstado = ((IEnumerable<Importames.Models.EstadosModel>)ViewBag.Estados).FirstOrDefault();
         }
-        <input type="hidden" name="IdEstado" value="@primerEstado.IdEstado" />
+        <input type="hidden" name="IdEstado" value="@(primerEstado?.IdEstado ?? 0)" />
         <select disabled>
-            <option>@primerEstado.NombreEstado</option>
+            <option>@(primerEstado?.NombreEstado ?? "Sin estado")</option>
         </select>
     </div>
 

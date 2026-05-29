@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
     const apuestaVehiculo = document.getElementById("apuestaVehiculo");
 
@@ -110,5 +110,74 @@ function generarPDF() {
             return;
         }
     }
+
+    let btnListo = document.querySelector('.btn-pdf');
+    let textoOriginal = "LISTO!";
+    if (btnListo) {
+        textoOriginal = btnListo.innerHTML;
+        btnListo.innerHTML = "Generando PDF... (Esto puede tardar un poco)";
+        btnListo.disabled = true;
+        btnListo.style.opacity = "0.7";
+    }
+
+    let datos = {};
+    for (let campo of campos) {
+        if (campo.type !== "hidden" && campo.id) {
+            datos[campo.id] = campo.value.trim();
+        }
+    }
+
+    fetch('/Cotizaciones/GenerarPDF', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al generar el PDF. Verifica los datos.');
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        const fileURL = window.URL.createObjectURL(blob);
+        
+        // Crea un elemento <a> para forzar la descarga y luego abre
+        // Esto soluciona ambos problemas: se descarga y se abre
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = fileURL;
+        a.download = 'Cotizacion.pdf';
+        
+        // Requerido por Firefox
+        document.body.appendChild(a);
+        a.click();
+        
+        // Además, lo abre en una nueva pestaña
+        window.open(fileURL, '_blank');
+        
+        document.body.removeChild(a);
+        
+        // Restaurar botón
+        if (btnListo) {
+            btnListo.innerHTML = textoOriginal;
+            btnListo.disabled = false;
+            btnListo.style.opacity = "1";
+        }
+
+        setTimeout(() => {
+            window.URL.revokeObjectURL(fileURL);
+        }, 8000);
+    })
+    .catch(error => {
+        alert(error.message);
+        // Restaurar botón
+        if (btnListo) {
+            btnListo.innerHTML = textoOriginal;
+            btnListo.disabled = false;
+            btnListo.style.opacity = "1";
+        }
+    });
 
 }

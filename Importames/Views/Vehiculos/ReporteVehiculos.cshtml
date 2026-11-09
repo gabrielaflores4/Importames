@@ -1,0 +1,203 @@
+﻿@model List<Importames.Models.VehiculoModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Reporte de Vehículos</title>
+    <style>
+            @@page {
+                size: A4 landscape;
+                margin: 10mm;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                color: #1e293b;
+                margin: 0;
+                padding: 0;
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #475569;
+                padding-bottom: 10px;
+            }
+
+            .title {
+                font-size: 24px;
+                font-weight: bold;
+                color: #0f172a;
+            }
+
+            .subtitle {
+                color: #64748b;
+                font-size: 13px;
+                margin-top: 5px;
+            }
+
+            .date {
+                text-align: right;
+                color: #64748b;
+                font-size: 12px;
+            }
+
+            table.tabla-reporte {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                table-layout: fixed !important;
+                margin-top: 10px !important;
+                border: 2px solid #475569 !important;
+            }
+
+                table.tabla-reporte th,
+                table.tabla-reporte td {
+                    border: 1px solid #475569 !important;
+                    padding: 10px !important;
+                    font-size: 12px !important;
+                    text-align: center !important;
+                    vertical-align: middle !important;
+                    background-color: transparent;
+                }
+
+                table.tabla-reporte thead th {
+                    background-color: #0f172a !important;
+                    color: white !important;
+                    font-weight: bold !important;
+                    text-transform: uppercase;
+                }
+
+                table.tabla-reporte tbody tr:nth-child(even) td {
+                    background-color: #f8fafc !important;
+                }
+
+            .badge {
+                padding: 4px 10px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: bold;
+                color: white;
+                display: inline-block;
+            }
+
+            .cyan {
+                background: #06b6d4 !important;
+            }
+
+            .yellow {
+                background: #eab308 !important;
+            }
+
+            .purple {
+                background: #8b5cf6 !important;
+            }
+
+            .red {
+                background: #ef4444 !important;
+            }
+
+            .blue {
+                background: #3b82f6 !important;
+            }
+
+            .green {
+                background: #22c55e !important;
+            }
+
+            .footer {
+                margin-top: 20px;
+                text-align: center;
+                color: #94a3b8;
+                font-size: 11px;
+            }
+
+            @@media print {
+                .no-print {
+                    display: none;
+                }
+
+                * {
+                    -webkit-print-color-adjust: exact !important;
+                    print-color-adjust: exact !important;
+                }
+
+                table.tabla-reporte th,
+                table.tabla-reporte td {
+                    border: 1px solid #475569 !important;
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+        <button onclick="window.print()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px;">🖨️ Guardar PDF / Imprimir</button>
+    </div>
+
+    <div class="header">
+        <div>
+            <div class="title">Reporte de Vehículos</div>
+            <div class="subtitle">Vehículos filtrados del sistema</div>
+        </div>
+        <div class="date">
+            Fecha de generación<br />
+            @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+        </div>
+    </div>
+
+    <table class="tabla-reporte">
+        <thead>
+            <tr>
+                <th>VIN</th>
+                <th>Vehículo</th>
+                <th>Cliente</th>
+                <th>Estado</th>
+                <th>Año</th>
+                <th>Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var v in Model)
+            {
+                string clase = "blue";
+                switch (v.Estado?.NombreEstado)
+                {
+                    case "En tránsito": clase = "cyan"; break;
+                    case "En aduana": clase = "yellow"; break;
+                    case "En preparación": clase = "purple"; break;
+                    case "Trámites pendientes": clase = "red"; break;
+                    case "Listo para entrega": clase = "blue"; break;
+                    case "Entregado": clase = "green"; break;
+                }
+
+                <tr>
+                    <td>@v.Vin</td>
+                    <td>@v.Marca @v.Modelo</td>
+                    <td>@(v.Cliente != null ? $"{v.Cliente.Nombre} {v.Cliente.Apellido}" : "Sin asignar")</td>
+                    <td>
+                        <span class="badge @clase">
+                            @(v.Estado?.NombreEstado ?? "Desconocido")
+                        </span>
+                    </td>
+                    <td>@v.Anio</td>
+                    <td>$@v.Costo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="footer">
+        Importames © @DateTime.Now.Year
+    </div>
+    <script>
+            window.onload = function () {
+                setTimeout(function () { window.print(); }, 500);
+            };
+    </script>
+</body>
+</html>

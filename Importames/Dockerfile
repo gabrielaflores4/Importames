@@ -4,6 +4,9 @@ EXPOSE 5216
 
 ENV ASPNETCORE_URLS=http://+:5216
 
+USER root
+RUN apt-get update && apt-get install -y libgdiplus libc6-dev && rm -rf /var/lib/apt/lists/*
+
 USER app
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG configuration=Release
@@ -21,4 +24,5 @@ RUN dotnet publish "Importames.csproj" -c $configuration -o /app/publish /p:UseA
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+ENV DOTNET_SYSTEM_DRAWING_ENABLEUNIXSUPPORT=1
 ENTRYPOINT ["dotnet", "Importames.dll"]

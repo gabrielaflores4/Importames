@@ -9,195 +9,92 @@
     <meta charset="utf-8" />
     <title>Reporte de Vehículos</title>
     <style>
-            @@page {
-                size: A4 landscape;
-                margin: 10mm;
-            }
-
-            body {
-                font-family: Arial, sans-serif;
-                color: #1e293b;
-                margin: 0;
-                padding: 0;
-            }
-
-            .header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 20px;
-                border-bottom: 2px solid #475569;
-                padding-bottom: 10px;
-            }
-
-            .title {
-                font-size: 24px;
-                font-weight: bold;
-                color: #0f172a;
-            }
-
-            .subtitle {
-                color: #64748b;
-                font-size: 13px;
-                margin-top: 5px;
-            }
-
-            .date {
-                text-align: right;
-                color: #64748b;
-                font-size: 12px;
-            }
-
-            table.tabla-reporte {
-                width: 100% !important;
-                border-collapse: collapse !important;
-                table-layout: fixed !important;
-                margin-top: 10px !important;
-                border: 2px solid #475569 !important;
-            }
-
-                table.tabla-reporte th,
-                table.tabla-reporte td {
-                    border: 1px solid #475569 !important;
-                    padding: 10px !important;
-                    font-size: 12px !important;
-                    text-align: center !important;
-                    vertical-align: middle !important;
-                    background-color: transparent;
-                }
-
-                table.tabla-reporte thead th {
-                    background-color: #0f172a !important;
-                    color: white !important;
-                    font-weight: bold !important;
-                    text-transform: uppercase;
-                }
-
-                table.tabla-reporte tbody tr:nth-child(even) td {
-                    background-color: #f8fafc !important;
-                }
-
-            .badge {
-                padding: 4px 10px;
-                border-radius: 20px;
-                font-size: 11px;
-                font-weight: bold;
-                color: white;
-                display: inline-block;
-            }
-
-            .cyan {
-                background: #06b6d4 !important;
-            }
-
-            .yellow {
-                background: #eab308 !important;
-            }
-
-            .purple {
-                background: #8b5cf6 !important;
-            }
-
-            .red {
-                background: #ef4444 !important;
-            }
-
-            .blue {
-                background: #3b82f6 !important;
-            }
-
-            .green {
-                background: #22c55e !important;
-            }
-
-            .footer {
-                margin-top: 20px;
-                text-align: center;
-                color: #94a3b8;
-                font-size: 11px;
-            }
-
             @@media print {
-                .no-print {
-                    display: none;
-                }
-
                 * {
                     -webkit-print-color-adjust: exact !important;
                     print-color-adjust: exact !important;
                 }
 
-                table.tabla-reporte th,
-                table.tabla-reporte td {
-                    border: 1px solid #475569 !important;
+                #contenedor-boton {
+                    display: none !important;
                 }
             }
     </style>
 </head>
-<body>
-    <div class="no-print" style="text-align: right; margin-bottom: 20px;">
-        <button onclick="window.print()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px;">🖨️ Guardar PDF / Imprimir</button>
+<body style="font-family: Arial, sans-serif; background: white; margin: 0; padding: 20px;">
+
+    <div id="contenedor-boton" style="text-align: right; margin-bottom: 20px;">
+        <button onclick="imprimirReporte()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px; font-weight: bold;">
+           Guardar PDF / Imprimir
+        </button>
     </div>
 
-    <div class="header">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #94a3b8; padding-bottom: 15px; margin-bottom: 20px;">
         <div>
-            <div class="title">Reporte de Vehículos</div>
-            <div class="subtitle">Vehículos filtrados del sistema</div>
+            <h1 style="color: #0f172a; margin: 0; font-size: 24px;">Reporte de Vehículos</h1>
+            <p style="color: #64748b; margin: 5px 0 0 0; font-size: 13px;">Vehículos filtrados del sistema</p>
         </div>
-        <div class="date">
+        <div style="text-align: right; color: #64748b; font-size: 12px;">
             Fecha de generación<br />
             @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
         </div>
     </div>
 
-    <table class="tabla-reporte">
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid #cbd5e1;">
         <thead>
-            <tr>
-                <th>VIN</th>
-                <th>Vehículo</th>
-                <th>Cliente</th>
-                <th>Estado</th>
-                <th>Año</th>
-                <th>Costo</th>
+            <tr style="background-color: #0f172a; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                <th style="padding: 12px 10px; border: 1px solid #cbd5e1; color: white; text-align: center; font-size: 12px;">VIN</th>
+                <th style="padding: 12px 10px; border: 1px solid #cbd5e1; color: white; text-align: center; font-size: 12px;">Vehículo</th>
+                <th style="padding: 12px 10px; border: 1px solid #cbd5e1; color: white; text-align: center; font-size: 12px;">Cliente</th>
+                <th style="padding: 12px 10px; border: 1px solid #cbd5e1; color: white; text-align: center; font-size: 12px;">Estado</th>
+                <th style="padding: 12px 10px; border: 1px solid #cbd5e1; color: white; text-align: center; font-size: 12px;">Año</th>
+                <th style="padding: 12px 10px; border: 1px solid #cbd5e1; color: white; text-align: center; font-size: 12px;">Costo</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var v in Model)
             {
-                string clase = "blue";
+                string bgBadge = "#3b82f6";
                 switch (v.Estado?.NombreEstado)
                 {
-                    case "En tránsito": clase = "cyan"; break;
-                    case "En aduana": clase = "yellow"; break;
-                    case "En preparación": clase = "purple"; break;
-                    case "Trámites pendientes": clase = "red"; break;
-                    case "Listo para entrega": clase = "blue"; break;
-                    case "Entregado": clase = "green"; break;
+                    case "En tránsito": bgBadge = "#06b6d4"; break;
+                    case "En aduana": bgBadge = "#eab308"; break;
+                    case "En preparación": bgBadge = "#8b5cf6"; break;
+                    case "Trámites pendientes": bgBadge = "#ef4444"; break;
+                    case "Listo para entrega": bgBadge = "#3b82f6"; break;
+                    case "Entregado": bgBadge = "#22c55e"; break;
                 }
 
-                <tr>
-                    <td>@v.Vin</td>
-                    <td>@v.Marca @v.Modelo</td>
-                    <td>@(v.Cliente != null ? $"{v.Cliente.Nombre} {v.Cliente.Apellido}" : "Sin asignar")</td>
-                    <td>
-                        <span class="badge @clase">
+                string bgFila = Model.IndexOf(v) % 2 == 0 ? "#ffffff" : "#f8fafc";
+
+                <tr style="background-color: @bgFila; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                    <td style="padding: 12px 10px; border: 1px solid #cbd5e1; text-align: center; font-size: 12px;">@v.Vin</td>
+                    <td style="padding: 12px 10px; border: 1px solid #cbd5e1; text-align: center; font-size: 12px;">@v.Marca @v.Modelo</td>
+                    <td style="padding: 12px 10px; border: 1px solid #cbd5e1; text-align: center; font-size: 12px;">@(v.Cliente != null ? $"{v.Cliente.Nombre} {v.Cliente.Apellido}" : "Sin asignar")</td>
+                    <td style="padding: 12px 10px; border: 1px solid #cbd5e1; text-align: center; font-size: 12px;">
+                        <span style="display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; color: white; background-color: @bgBadge; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
                             @(v.Estado?.NombreEstado ?? "Desconocido")
                         </span>
                     </td>
-                    <td>@v.Anio</td>
-                    <td>$@v.Costo</td>
+                    <td style="padding: 12px 10px; border: 1px solid #cbd5e1; text-align: center; font-size: 12px;">@v.Anio</td>
+                    <td style="padding: 12px 10px; border: 1px solid #cbd5e1; text-align: center; font-size: 12px;">$@v.Costo</td>
                 </tr>
             }
         </tbody>
     </table>
 
-    <div class="footer">
+    <div style="margin-top: 20px; text-align: center; color: #94a3b8; font-size: 11px;">
         Importames © @DateTime.Now.Year
     </div>
+
     <script>
-            window.onload = function () {
-                setTimeout(function () { window.print(); }, 500);
-            };
+            function imprimirReporte() {
+                document.getElementById('contenedor-boton').style.display = 'none';
+                window.print();
+                setTimeout(function () {
+                    document.getElementById('contenedor-boton').style.display = 'block';
+                }, 500);
+            }
     </script>
 </body>
 </html>
